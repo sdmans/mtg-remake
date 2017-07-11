@@ -5,13 +5,18 @@ const bodyParser = require('body-parser')
 const hbs = require('express-handlebars')
 const mongoose = require('mongoose')
 
+//Initiating application and require routes
 const app = express()
 const appController = require('./routes/index.js')
+const setController = require('./routes/set.js')
 
+//Setting handlebars stuff
 app.engine('handlebars', hbs({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
 
+//Making use of routes
 app.use('/', appController)
+app.use('/sets', setController)
 
 //Server Connect for both port and Heroku
 let port = process.env.PORT || 3000
