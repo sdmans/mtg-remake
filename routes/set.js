@@ -6,7 +6,7 @@ const setRouter = express.Router()
 setRouter.get('/akh', function (req, res ) {
   let setTitle = 'Amonkhet'
 
-  mtg.card.where({set:'akh', types: 'Creature'})
+  mtg.card.where({set:'akh'})
   .then(function(cards) {
     console.log(cards.length)
     res.render('sets/set', {cards, setTitle})
@@ -16,7 +16,7 @@ setRouter.get('/akh', function (req, res ) {
 
 setRouter.get('/aer', function (req, res ) {
   let setTitle = 'Aether Revolt'
-  mtg.card.where({set:'aer', types: 'Creature'})
+  mtg.card.where({set:'aer'})
   .then(function(cards) {
     res.render('sets/set', {cards, setTitle})
   })
@@ -25,7 +25,7 @@ setRouter.get('/aer', function (req, res ) {
 
 setRouter.get('/kld', function (req, res ) {
 let setTitle = 'Kaladesh'
-  mtg.card.where({set:'kld', types: 'Creature'})
+  mtg.card.where({set:'kld'})
   .then(function(cards) {
     res.render('sets/set', {cards, setTitle})
   })
@@ -34,7 +34,7 @@ let setTitle = 'Kaladesh'
 
 setRouter.get('/emn', function (req, res ) {
   let setTitle = 'Eldritch Moon'
-  mtg.card.where({set:'emn', types: 'Creature'})
+  mtg.card.where({set:'emn'})
   .then(function(cards) {
     res.render('sets/set', {cards, setTitle})
   })
@@ -43,7 +43,7 @@ setRouter.get('/emn', function (req, res ) {
 
 setRouter.get('/soi', function (req, res ) {
   let setTitle = 'Shadows Over Innistrad'
-  mtg.card.where({set:'soi', types: 'Creature'})
+  mtg.card.where({set:'soi'})
   .then(function(cards) {
     res.render('sets/set', {cards, setTitle})
   })
