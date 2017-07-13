@@ -5,4 +5,14 @@
 <p><b>Type: </b>{{type}}</p>
 <p><b>Rarity: </b>{{rarity}}</p>
 <p><b>Text: </b>{{text}}</p>
+
+{{#if chosenCard}}
+<p class="notify"><b>Card Added to Inventory</b></p>
+{{/if}}
+
+<form class="" action="/cards/{{name}}" method="post">
+  <button type="submit" name="button">Add to Inventory</button>
+</form>
+
+
 <p><a href="/">Return to Main Page</a></p>

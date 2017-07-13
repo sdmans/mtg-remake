@@ -1,7 +1,12 @@
-
+{{#unless currentUser}}
 <h2>Current User Profile</h2>
 <p><b>You are now logged in as {{username}}</b></p>
+
+{{#each ownCards}}
+  {{name}}
+{{/each}}
 
 <p><a href="/">Home</a></p>
 
 <p><a href="/user/logout">Logout</a></p>
+{{/unless}}

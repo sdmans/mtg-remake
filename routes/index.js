@@ -14,7 +14,7 @@ const appRouter = express.Router()
 
 appRouter.get('/', function( req, res) {
   const activeUser = req.user
-  res.render('index', activeUser)
+  res.render('index', {activeUser})
 })
 
 module.exports = appRouter
