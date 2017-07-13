@@ -1,8 +1,8 @@
 const express = require('express')
-const marketController = express.Router()
+const marketRouter = express.Router()
 
-marketController.get('/market', function (req, res) {
+marketRouter.get('/market', function (req, res) {
   res.render('market/market', {name: ['Archangel Avacyn', 'Cull the Meek', 'Liliana the last Hope']})
 })
 
-module.exports = marketController
+module.exports = marketRouter

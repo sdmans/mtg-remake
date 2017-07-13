@@ -10,10 +10,10 @@ Shadows Over Innistrad: soi
 */
 
 const express = require('express')
-const appController = express.Router()
+const appRouter = express.Router()
 
-appController.get('/', function( req, res) {
+appRouter.get('/', function( req, res) {
   res.render('index', {})
 })
 
-module.exports = appController
+module.exports = appRouter
