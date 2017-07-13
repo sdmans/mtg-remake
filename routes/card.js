@@ -40,7 +40,8 @@ cardRouter.get('/:name', function(req, res) {
       colors: '',
       text: '',
       image: '',
-      rarity: ''
+      rarity: '',
+      set: ''
   }
   console.log(cardName)
 
@@ -56,6 +57,7 @@ cardRouter.get('/:name', function(req, res) {
       singleCard.text = card.text
       singleCard.image = card.imageUrl
       singleCard.rarity = card.rarity
+      singleCard.set = card.setName
       console.log(singleCard)
 
     res.render('cards/card', singleCard)

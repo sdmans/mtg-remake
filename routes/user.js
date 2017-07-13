@@ -9,14 +9,13 @@ userRouter.get('/register', function(req, res) {
   res.render('user/register')
 }).post('/register', function( req, res) {
   User.register(new User({
-    name: req.body.realname,
     username: req.body.username
   }), req.body.password, function (err, user) {
     if (err) {
       return res.render('user/register', {user: user})
     }
     passport.authenticate('local')(req, res, function() {
-      console.log(user)
+      console.log(User)
       res.redirect('/')
     })
   })
