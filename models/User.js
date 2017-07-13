@@ -7,7 +7,8 @@ const User = new Schema({
   username: String,
   password: String,
   favorites: [],
-  ownCards: []
+  ownCards: [],
+  market: []
 })
 
 User.plugin(passportLocalMongoose)
