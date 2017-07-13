@@ -7,6 +7,7 @@ const mongoose = require('mongoose')
 
 //Requiring Passport
 const cookieParser = require('cookie-parser')
+const expressSession = require('express-session')
 const passport = require('passport')
 const localStrategy = require('passport-local').Strategy
 
@@ -34,6 +35,18 @@ app.use('/sets', setController)
 app.use('/cards', cardController)
 app.use('/trade', marketController)
 app.use('/user', userController)
+
+//Requiring User model
+const User = require('./models/User')
+
+//Authentication
+// app.use(expressSession({secret: 'mySecretKey'}))
+// app.use(passport.initialize())
+// app.use(passport.session())
+//
+// passport.use(new localStrategy(User.authenticate()))
+// passport.serializeUser(User.serializeUser())
+// passport.deserializeUser(User.deserializeUser())
 
 
 //Server Connect for both port and Heroku
