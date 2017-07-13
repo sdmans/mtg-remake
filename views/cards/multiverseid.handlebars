@@ -1,0 +1,18 @@
+
+<h2>Card Name: {{name}}</h2>
+<img src='{{image}}'>
+<p><b>Set:</b> {{set}}</p>
+<p><b>Type: </b>{{type}}</p>
+<p><b>Rarity: </b>{{rarity}}</p>
+<p><b>Text: </b>{{text}}</p>
+
+{{#if chosenCard}}
+<p class="notify"><b>Card Added to Inventory</b></p>
+{{/if}}
+
+<form class="" action="/cards/{{multiverseid}}" method="post">
+  <button type="submit" name="button">Add to Inventory</button>
+</form>
+
+
+<p><a href="/">Return to Main Page</a></p>

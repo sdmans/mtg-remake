@@ -5,7 +5,7 @@ const cardRouter = express.Router()
 
 //Testing Search function
 //Figure out how to handle blank entries
-cardRouter.get('/search', function (req, res) {
+cardRouter.get('/search', function(req, res) {
   res.render('cards/search')
 }).post('/search', function(req, res) {
   //Store set to a variable
@@ -13,44 +13,79 @@ cardRouter.get('/search', function (req, res) {
   //store type to a variable
   let cardType = req.body.selecttype
 
-  mtg.card.where({set: cardSet, type: cardType})
-  .then(function(cards) {
+  mtg.card.where({
+      set: cardSet,
+      type: cardType
+    })
+    .then(function(cards) {
 
-    //Rerender the page
-    res.render('cards/search', {cards})
-    //Attempt to store cardname value to a variable
-    //Can't seem to use this to redirect to pages
-    //'Can\'t set headers after they are sent.'
-    res.redirect(`/cards/${cardName}`)
-  })
+      //Rerender the page
+      res.render('cards/search', {
+        cards
+      })
+      //Attempt to store cardname value to a variable
+      //Can't seem to use this to redirect to pages
+      //'Can\'t set headers after they are sent.'
+      res.redirect(`/cards/${cardName}`)
+    })
 
-  })
+})
+
+//Search by multiverseid
+
+cardRouter.get('/:multiverseid', function(req, res) {
+  const cardID = req.params.multiverseid
+
+  mtg.card.find(cardID)
+    .then(result => {
+      console.log(result.card.name)
+
+      const currentCard = {
+        name: result.card.naname,
+        type: result.card.type,
+        colors: result.card.colors,
+        text: result.card.text,
+        image: result.card.imageUrl,
+        rarity: result.card.rarity,
+        set: result.card.setName
+      }
+      res.render('cards/card', currentCard)
+    })
+}).post('/:multiverseid', function(req, res){
+  const id = req.params.multiverseid
+  console.log(id)
+})
 
 
 //Search by Name
 //To be Adjusted
 /*This throws errors if multiples of the card exists*/
 
+//Commenting out this entire route since it won't work
+/*
 cardRouter.get('/:name', function(req, res) {
   const cardName = req.params.name
-  console.log(req.params.name)
+  // console.log(req.params.name)
   const singleCard = {
     name: '',
-      type: '',
-      colors: '',
-      text: '',
-      image: '',
-      rarity: '',
-      set: ''
+    type: '',
+    colors: '',
+    text: '',
+    image: '',
+    rarity: '',
+    set: ''
   }
-  console.log(cardName)
+  // console.log(cardName)
 
-  mtg.card.all({name: cardName})
-  .on('data', function(card) {
-    // console.log(card)
-    // console.log(card.name)
-    //Stores the card to a variable
-    //Need to find a way to query the card through a form setting both name and set
+  mtg.card.all({
+      name: cardName
+    })
+    .on('data', function(card) {
+      // console.log(card)
+      // console.log(card.name)
+      //Stores the card to a variable
+      //Need to find a way to query the card through a form setting both name and set
+
       singleCard.name = card.name
       singleCard.type = card.type
       singleCard.colors = card.colors
@@ -60,45 +95,43 @@ cardRouter.get('/:name', function(req, res) {
       singleCard.set = card.setName
       // console.log(singleCard)
 
-    res.render('cards/card', singleCard)
-  })
+      res.render('cards/card', singleCard)
+    })
 
 }).post('/:name', function(req, res) {
-  const chosenCardName = req.params.name
-  console.log(chosenCardName)
 
-  const chosenCard = {
-    name: '',
-      type: '',
-      colors: '',
-      text: '',
-      image: '',
-      rarity: '',
-      set: ''
-  }
+  console.log(req.params.name)
 
-  mtg.card.all({name: chosenCardName})
-  .on('data', function(card) {
-    // console.log(card)
-    console.log(card.name)
-    //Stores the card to a variable
-    //Need to find a way to query the card through a form setting both name and set
-      chosenCard.name = card.name
-      chosenCard.type = card.type
-      chosenCard.colors = card.colors
-      chosenCard.text = card.text
-      chosenCard.image = card.imageUrl
-      chosenCard.rarity = card.rarity
-      chosenCard.set = card.setName
-      console.log(chosenCard)
-      console.log(req.user)
+  mtg.card.all({
+      name: req.params.name
+    })
+    .on('data', function(card) {
+      // console.log(card)
+      // console.log(card.name)
+      //Stores the card to a variable
+      //Need to find a way to query the card through a form setting both name and set
+
+      const chosenCard = {
+        name: card.name,
+        type: card.type,
+        colors: card.colors,
+        text: card.text,
+        image: card.imageUrl,
+        rarity: card.rarity,
+        set: card.setName
+      }
       const currentUser = req.user
       currentUser.owncards.push(chosenCard)
-      console.log(currentUser)
-    // res.render('cards/card', chosenCard)
-  })
-  console.log(req.user)
+
+      console.log(chosenCard)
+      console.log(req.user)
+
+      console.log( `/cards/${ card.name }` )
+      res.redirect(`/cards/${ card.name }`)
+    })
   // res.render('cards/card', {})
 })
+
+*/
 
 module.exports = cardRouter

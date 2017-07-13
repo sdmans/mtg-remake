@@ -40,13 +40,16 @@ function(req, res) {
 userRouter.get('/profile', function(req, res) {
   const currentUser = req.user
   // console.log(currentUser)
-  res.render('user/user', currentUser )
-})
-
-userRouter.get('logout', function(req, res) {
+  res.render('user/user', {currentUser} )
+}).post('/profile', function (req, res) {
   req.logout()
   res.redirect('/')
 })
+
+// userRouter.get('logout', function(req, res) {
+//   req.logout()
+//   res.redirect('/')
+// })
 
 
 module.exports = userRouter
