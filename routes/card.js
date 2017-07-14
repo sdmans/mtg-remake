@@ -18,17 +18,39 @@ cardRouter.get('/search', function(req, res) {
       type: cardType
     })
     .then(function(cards) {
+      // console.log(cardSet)
 
       //Rerender the page
-      res.render('cards/search', {
-        cards
-      })
+      res.redirect(`/cards/namesearch/${cardSet}/${cardType}`)
+
+
       //Attempt to store cardname value to a variable
       //Can't seem to use this to redirect to pages
       //'Can\'t set headers after they are sent.'
       // res.redirect(`/cards/${cardName}`)
     })
+})
 
+cardRouter.get('/namesearch/:set/:type', function(req, res) {
+  //Take the two parameters and use them to query for the list
+  const parameters = req.params
+  const set = req.params.set
+  const type = req.params.type
+
+  //search based on these parameters
+  mtg.card.where({
+      set: set,
+      type: type
+    })
+    .then(function(cards){
+      //render the queried cards
+      res.render('cards/namesearch', {cards, parameters})
+    })
+
+}).post('/namesearch/:set/:type', function(req, res) {
+  const location = req.body.nameselector
+  console.log(location)
+  res.redirect(`/cards/${location}`)
 })
 
 //Search by multiverseid

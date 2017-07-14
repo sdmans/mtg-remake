@@ -1,0 +1,16 @@
+<h2>Search a card!</h2>
+<p><b>Search Name and ID</b></p>
+
+{{#if cards}}
+<p><b>Select Card Name</b></p>
+<form class="name-search" action="/cards/namesearch/{{parameters.set}}/{{parameters.type}}" method="POST">
+<select name="nameselector">
+  <option value=""></option>
+  {{#each cards}}
+    <option value="{{multiverseid}}">{{name}}</option>
+  {{/each}}
+</select>
+<button type="submit" name="button">Submit</button>
+</form>
+{{/if}}
+<p><a href="/">Return to Main Page</a></p>
