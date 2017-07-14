@@ -26,7 +26,7 @@ cardRouter.get('/search', function(req, res) {
       //Attempt to store cardname value to a variable
       //Can't seem to use this to redirect to pages
       //'Can\'t set headers after they are sent.'
-      res.redirect(`/cards/${cardName}`)
+      // res.redirect(`/cards/${cardName}`)
     })
 
 })
@@ -38,22 +38,42 @@ cardRouter.get('/:multiverseid', function(req, res) {
 
   mtg.card.find(cardID)
     .then(result => {
-      console.log(result.card.name)
-
       const currentCard = {
-        name: result.card.naname,
+        name: result.card.name,
         type: result.card.type,
         colors: result.card.colors,
         text: result.card.text,
         image: result.card.imageUrl,
         rarity: result.card.rarity,
-        set: result.card.setName
+        set: result.card.setName,
+        id: result.card.multiverseid
       }
-      res.render('cards/card', currentCard)
+      res.render('cards/multiverseid', currentCard)
     })
 }).post('/:multiverseid', function(req, res){
   const id = req.params.multiverseid
-  console.log(id)
+  mtg.card.find(id)
+    .then(result => {
+
+      const chosenCard = {
+        name: result.card.name,
+        type: result.card.type,
+        colors: result.card.colors,
+        text: result.card.text,
+        image: result.card.imageUrl,
+        rarity: result.card.rarity,
+        set: result.card.setName,
+        id: result.card.multiverseid
+      }
+
+      const currentUser = req.user
+      console.log(currentUser.ownCards)
+      // currentUser.ownCards.push(chosenCard)
+      // console.log(currentUser)
+      // currentUser.save()
+
+    })
+
 })
 
 

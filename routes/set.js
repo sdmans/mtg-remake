@@ -8,7 +8,6 @@ setRouter.get('/akh', function (req, res ) {
 
   mtg.card.where({set:'akh'})
   .then(function(cards) {
-    console.log(cards.length)
     res.render('sets/set', {cards, setTitle})
   })
 

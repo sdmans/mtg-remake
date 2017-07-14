@@ -5,12 +5,13 @@
 <p><b>Type: </b>{{type}}</p>
 <p><b>Rarity: </b>{{rarity}}</p>
 <p><b>Text: </b>{{text}}</p>
+<p><b>id: {{id}}</b></p>
 
 {{#if chosenCard}}
 <p class="notify"><b>Card Added to Inventory</b></p>
 {{/if}}
 
-<form class="" action="/cards/{{multiverseid}}" method="post">
+<form class="" action="/cards/{{id}}" method="post">
   <button type="submit" name="button">Add to Inventory</button>
 </form>
 

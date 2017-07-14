@@ -2,11 +2,14 @@
 <h2>{{currentUser.username}} Profile</h2>
 <p><b>You are now logged in as {{currentUser.username}}</b></p>
 
+<h3>Cards in Inventory</h3>
 {{#each currentUser.ownCards}}
-  {{name}}
+  <a href="/cards/{{id}}"><img class="inventory" style="width: 150px; height: 200px;" src="{{image}}"></a>
+  <a href="/cards/{{id}}"><p><b>{{name}}</b></p></a>
 {{/each}}
 
 <p><a href="/">Home</a></p>
+<p><a href="/trade/market">Market</a></p>
 <form class="logout" action="/user/profile" method="post">
 <button type="submit" name="button">Logout</button>
 </form>
