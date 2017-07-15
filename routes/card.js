@@ -93,7 +93,7 @@ cardRouter.get('/:multiverseid', function(req, res) {
       // currentUser.ownCards.push(chosenCard)
       // console.log(currentUser)
       // currentUser.save()
-
+      res.redirect('/user/profile')
     })
 
 })

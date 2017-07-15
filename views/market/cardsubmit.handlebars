@@ -1,0 +1,22 @@
+<h2>Submit a Card!</h2>
+{{#if submittingUser}}
+<p><b>You are now logged in as {{submittingUser.username}}</b></p>
+
+{{#each submittingUser.ownCards}}
+  <a href="/cards/{{id}}"><img class="inventory" style="width: 150px; height: 200px;" src="{{image}}" alt="{{name}} image"></a>
+  <a href="/cards/{{id}}"><p><b>{{name}}</b></p></a>
+{{/each}}
+
+  <form class="submit-form" action="/trade/submit" method="post">
+      <select class="inventory-select" name="inventoryselector">
+        <option value=""></option>
+        {{#each submittingUser.ownCards}}
+        <option value="{{name}}">{{name}}</option>
+        {{/each}}
+
+      </select>
+  </form>
+
+
+  <p><a href="/">Home</a></p>
+{{/if}}
