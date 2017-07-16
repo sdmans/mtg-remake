@@ -11,10 +11,11 @@
       <select class="inventory-select" name="inventoryselector">
         <option value=""></option>
         {{#each submittingUser.ownCards}}
-        <option value="{{name}}">{{name}}</option>
+        <option value="{{uniqueId}}">{{name}}</option>
         {{/each}}
 
       </select>
+      <button type="submit" name="button">Submit Card</button>
   </form>
 
 

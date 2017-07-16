@@ -14,11 +14,42 @@ marketRouter.get('/market', function (req, res) {
 marketRouter.get('/submit', function(req, res) {
   let submittingUser = req.user
   res.render('market/cardsubmit', {submittingUser})
-})
+}).post('/submit', function(req, res) {
+  let submittingUser = req.user
+  let cardValue = req.body.inventoryselector
+  console.log(cardValue)
+  currentCards = submittingUser.ownCards
 
-// .post('/submit', function(req, res) {
-//   console.log()
+//Query the card based on uniqueId
+
+for(i = 0; i<currentCards.length; i++) {
+  if(currentCards[i].uniqueId === cardValue) {
+    console.log(currentCards[i].name + ` found at position ${i}`)
+    console.log('The ID is ' + `${currentCards[i].uniqueId}`)
+
+  } else {
+    console.log('continuing loop')
+  }
+}
+
 //
-// })
+
+//code to remove cards
+
+  // for(i = 0; i<currentCards.length; i++) {
+  //   if(currentCards[i].name === cardValue) {
+  //     console.log(currentCards[i].name + ` found at position ${i}`)
+  //     console.log('removing from Array...')
+  //     currentCards.splice(i, 1)
+  //     console.log(currentCards)
+  //     submittingUser.save()
+  //   } else {
+  //     console.log('continuing loop')
+  //   }
+  // }
+
+//remove cards function ends here
+
+})
 
 module.exports = marketRouter

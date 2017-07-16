@@ -8,6 +8,19 @@
   <a href="/cards/{{id}}"><p><b>{{name}}</b></p></a>
 {{/each}}
 
+<p><b>Remove a card from inventory</b></p>
+
+<form class="" action="/user/profile" method="post">
+<select class="card-removal" name="removedCard">
+  <option value=""></option>
+  {{#each currentUser.ownCards}}
+  <option value="{{uniqueId}}">{{name}}</option>
+  {{/each}}
+</select>
+<button type="submit" name="button">Remove Card</button>
+</form>
+
+
 <p><a href="/">Home</a></p>
 <p><a href="/trade/market">Market</a></p>
 <form class="logout" action="/user/profile" method="post">

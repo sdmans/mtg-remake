@@ -74,6 +74,8 @@ cardRouter.get('/:multiverseid', function(req, res) {
     })
 }).post('/:multiverseid', function(req, res){
   const id = req.params.multiverseid
+  const currentUser = req.user
+
   mtg.card.find(id)
     .then(result => {
 
@@ -85,14 +87,22 @@ cardRouter.get('/:multiverseid', function(req, res) {
         image: result.card.imageUrl,
         rarity: result.card.rarity,
         set: result.card.setName,
-        id: result.card.multiverseid
+        id: result.card.multiverseid,
+        uniqueId: `${result.card.name}` + ` ${currentUser.ownCards.length}`
       }
 
-      const currentUser = req.user
+
+      // const currentUser = req.user
       console.log(currentUser.ownCards)
-      // currentUser.ownCards.push(chosenCard)
-      // console.log(currentUser)
-      // currentUser.save()
+      currentUser.ownCards.push(chosenCard)
+      console.log(currentUser.ownCards)
+
+      let currentCards = currentUser.ownCards
+
+
+
+      currentUser.save()
+
       res.redirect('/user/profile')
     })
 
