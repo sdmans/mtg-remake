@@ -88,7 +88,8 @@ cardRouter.get('/:multiverseid', function(req, res) {
         rarity: result.card.rarity,
         set: result.card.setName,
         id: result.card.multiverseid,
-        uniqueId: `${result.card.name}` + ` ${currentUser.ownCards.length}`
+        uniqueId: `${result.card.name}` + ` ${currentUser.ownCards.length}`,
+        onMarket: false
       }
 
 

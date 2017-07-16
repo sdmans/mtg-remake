@@ -34,6 +34,9 @@ app.use(expressSession({secret: 'mySecretKey'}))
 app.use(passport.initialize())
 app.use(passport.session())
 
+//Stylings
+app.use( express.static('public') )
+
 //Making use of routes
 app.use('/', appController)
 app.use('/sets', setController)

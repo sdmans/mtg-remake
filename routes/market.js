@@ -10,11 +10,29 @@ const currentMarket = new Market()
 //Need to get the current market to exist before I start submitting information to it
 
 marketRouter.get('/market', function (req, res) {
-  res.render('market/market', currentMarket)
+  const submittingUser = req.user
+  if(submittingUser != undefined){
+  res.render('market/market', {currentMarket})
+} else{
+  res.render('market/market')
+}
+
 }).post('/market', function(req, res) {
-  const SubmittingUser = req.user
+  const submittingUser = req.user
   const removedCardId =  req.body.marketSelector
-  console.log('removed card id is ' + removedCardId)
+  const marketCards = currentMarket.postedCards
+
+  // console.log('removed card id is ' + removedCardId)
+
+  for(i = 0; i < marketCards.length; i++){
+    if(marketCards[i].uniqueId === removedCardId) {
+      marketCards.splice(i, 1)
+      console.log('card removed')
+      console.log(marketCards)
+      res.redirect('/trade/market')
+    }
+  }
+
 })
 
 marketRouter.get('/submit', function(req, res) {
@@ -27,24 +45,23 @@ marketRouter.get('/submit', function(req, res) {
   currentCards = submittingUser.ownCards
 
 //Query the card based on uniqueId
-
 for(i = 0; i<currentCards.length; i++) {
   if(currentCards[i].uniqueId === cardValue) {
-    console.log(currentCards[i].name + ` found at position ${i}`)
-    console.log('The ID is ' + `${currentCards[i].uniqueId}`)
+
     //Card pushed to current market
     let marketCards = currentMarket.postedCards
+
+    currentCards[i].onMarket = true
     currentCards[i].owner = submittingUser.username
 
     marketCards.push(currentCards[i])
-
-    // console.log(marketCards)
-
+    currentCards.splice[i, 1]
+    console.log('saving...')
+    submittingUser.save()
     currentMarket.save()
 
     //Card removed from user's own cards
-    currentCards.splice[i, 1]
-    submittingUser.save()
+
     res.redirect('/trade/market')
 
   } else {
@@ -53,7 +70,6 @@ for(i = 0; i<currentCards.length; i++) {
   }
 }
 
-//
 
 //code to remove cards
 

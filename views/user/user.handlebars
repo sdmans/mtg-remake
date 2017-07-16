@@ -1,6 +1,10 @@
 <p><a href="/">Home</a></p>
 <p><a href="/trade/market">Market</a></p>
 
+{{#unless currentUser}}
+<h3>Sign in to view profile!</h3>
+{{/unless}}
+
 {{#if currentUser}}
 <h2>{{currentUser.username}} Profile</h2>
 <p><b>You are now logged in as {{currentUser.username}}</b></p>
@@ -9,8 +13,21 @@
 
 <h3>Cards in Inventory</h3>
 {{#each currentUser.ownCards}}
-  <a href="/cards/{{id}}"><img class="inventory" style="width: 150px; height: 200px;" src="{{image}}"></a>
+<div class="float">
+  <a href="/cards/{{id}}"><img class="inventory" src="{{image}}"></a>
   <a href="/cards/{{id}}"><p><b>{{name}}</b></p></a>
+  <p>{{onMarket}}</p>
+  </div>
+{{/each}}
+
+<h3>Cards on Market</h3>
+{{#each currentUser.ownCards}}
+
+{{#if onMarket}}
+  <a href="/cards/{{id}}"><img class="inventory" src="{{image}}"></a>
+  <a href="/cards/{{id}}"><p><b>{{name}}</b></p></a>
+{{/if}}
+
 {{/each}}
 
 
