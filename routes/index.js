@@ -15,6 +15,9 @@ const appRouter = express.Router()
 appRouter.get('/', function( req, res) {
   const activeUser = req.user
   res.render('index', {activeUser})
+}).post('/', function(req, res) {
+    req.logout()
+    res.redirect('/')
 })
 
 module.exports = appRouter

@@ -1,4 +1,20 @@
 <h2>Market Page</h2>
-{{#each name}}
-<p>{{this}}</p>
+<p><a href="/">Home</a></p>
+
+{{#each postedCards}}
+  <a href="/cards/{{id}}"><img src="{{image}}" alt="{{name}} image"></a>
+  <p><b>{{uniqueId}}</b></p>
+  <p>Posted by {{owner}}</p>
 {{/each}}
+<p><b>Remove a Card from the Market</b></p>
+
+<form class="market-form" action="/trade/market" method="post">
+<select class="market-card" name="marketSelector">
+
+  <option value=""></option>
+  {{#each postedCards}}
+  <option value="{{uniqueId}}">{{uniqueId}}</option>
+  {{/each}}
+</select>
+<button type="submit" name="button">Remove Card</button>
+</form>

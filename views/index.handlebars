@@ -4,15 +4,19 @@
    <li><a href="/user/register">Register</a></li>
    <li><a href="/user/signin">Sign In</a></li>
    <li><a href="/user/profile">View Profile</a></li>
+   <li><a href="/trade/market">Market</a></li>
  </ul>
 {{#if activeUser}}
 <p><b>Now logged in as {{activeUser.username}}</b></p>
+<form class="logout" action="/" method="post">
+<button type="submit" name="button">Logout</button>
+</form>
 {{/if}}
 
 
 <main>
 <h3><a href="/cards/search">Search a specific card by set</a></h3>
-
+<h3><a href="/trade/market">Check out the market!</a></h3>
 <h3>Recent Sets</h3>
 
   <div class="akh">
