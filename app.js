@@ -12,8 +12,8 @@ const passport = require('passport')
 const localStrategy = require('passport-local').Strategy
 
 //Connecting to Database
-mongoose.connect('mongodb://smans:dec122188@cluster0-shard-00-00-9pk1p.mongodb.net:27017,cluster0-shard-00-01-9pk1p.mongodb.net:27017,cluster0-shard-00-02-9pk1p.mongodb.net:27017/Cluster0?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin')
-
+// mongoose.connect('mongodb://smans:dec122188@cluster0-shard-00-00-9pk1p.mongodb.net:27017,cluster0-shard-00-01-9pk1p.mongodb.net:27017,cluster0-shard-00-02-9pk1p.mongodb.net:27017/Cluster0?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin')
+mongoose.connect('mongodb://smans:dec122188@ds157268.mlab.com:57268/smgear123')
 //Initiating application and require routes
 const app = express()
 
