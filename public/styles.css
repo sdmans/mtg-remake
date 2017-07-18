@@ -1,12 +1,39 @@
+
+body {
+  padding-left: 300px;
+  padding-right: 300px;
+}
+
 h1 {
   color: blue;
+}
+
+footer {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.set-list {
+  list-style-type: none;
+}
+
+.set-list li {
+  padding-top: 10px;
+}
+
+.single-card {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.submit-form {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .inventory {
   width: 150px;
   height: 200px;
-}
-
-.float {
-
+  padding-top: 20px;
+  /*margin-left: -200%;*/
 }

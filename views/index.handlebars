@@ -1,11 +1,5 @@
 <h2>Welcome to the index page!</h2>
 
- <ul>
-   <li><a href="/user/register">Register</a></li>
-   <li><a href="/user/signin">Sign In</a></li>
-   <li><a href="/user/profile">Profile</a></li>
-   <li><a href="/trade/market">Market</a></li>
- </ul>
 {{#if activeUser}}
 <p><b>Now logged in as {{activeUser.username}}</b></p>
 <form class="logout" action="/" method="post">

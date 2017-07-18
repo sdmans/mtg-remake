@@ -1,19 +1,18 @@
 
-<h2>Card Name: {{name}}</h2>
-<img src='{{image}}'>
+<h3>Card Name: {{name}}</h3>
+<img class="single-card" src='{{image}}' alt="{{name}} image">
 <p><b>Set:</b> {{set}}</p>
 <p><b>Type: </b>{{type}}</p>
 <p><b>Rarity: </b>{{rarity}}</p>
 <p><b>Text: </b>{{text}}</p>
-<p><b>id: {{id}}</b></p>
+<p><b>id:</b> {{id}}</p>
 
 {{#if chosenCard}}
 <p class="notify"><b>Card Added to Inventory</b></p>
 {{/if}}
 
-<form class="" action="/cards/{{id}}" method="post">
+<form class="submit-form" action="/cards/{{id}}" method="post">
   <button type="submit" name="button">Add to Inventory</button>
 </form>
-
 
 <p><a href="/">Return to Main Page</a></p>

@@ -2,10 +2,18 @@
 {{#if submittingUser}}
 <p><b>You are now logged in as {{submittingUser.username}}</b></p>
 
+<div class="container" style="width: 70%;">
+  <div class="row text-center">
+
 {{#each submittingUser.ownCards}}
+<div class="col-md-3">
   <a href="/cards/{{id}}"><img class="inventory" style="width: 150px; height: 200px;" src="{{image}}" alt="{{name}} image"></a>
   <a href="/cards/{{id}}"><p><b>{{name}}</b></p></a>
+</div>
 {{/each}}
+
+  </div>
+</div>
 
   <form class="submit-form" action="/trade/submit" method="post">
       <select class="inventory-select" name="inventoryselector">

@@ -1,15 +1,19 @@
 <h2>Market Page</h2>
-<p><a href="/">Home</a></p>
-<p><a href="/user/profile">Profile</a></p>
 
 {{#if currentMarket}}
+<div class="container" style="width: 70%;">
+  <div class="row text-center">
+
 {{#each currentMarket.postedCards}}
+<div class="col-md-3">
   <a href="/cards/{{id}}"><img class="inventory" src="{{image}}" alt="{{name}} image"></a>
-  <p><b>{{uniqueId}}</b></p>
-  <p>{{onMarket}}</p>
+  <p><b>{{name}}</b></p>
   <p>Posted by {{owner}}</p>
+</div>
 {{/each}}
 
+</div>
+</div>
 
 <p><b>Remove a Card from the Market</b></p>
 
@@ -18,7 +22,7 @@
 
   <option value=""></option>
   {{#each currentMarket.postedCards}}
-  <option value="{{uniqueId}}">{{uniqueId}}</option>
+  <option value="{{uniqueId}}">{{name}}</option>
   {{/each}}
 </select>
 <button type="submit" name="button">Remove Card</button>
