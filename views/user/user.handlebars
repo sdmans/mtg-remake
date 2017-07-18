@@ -6,8 +6,8 @@
 <h2>{{currentUser.username}} Profile</h2>
 <p><b>You are now logged in as {{currentUser.username}}</b></p>
 
-<p><b><a href="/cards/search">Add a new card!</a></b></p>
-<p><b><a href="/trade/submit">Post a card to the market!</a></b></p>
+
+
 
 
 <h3>Cards in Inventory</h3>
@@ -22,25 +22,18 @@
 
 </div>
 </div>
-
-<h3>Cards on Market</h3>
-{{#each currentUser.ownCards}}
-
-{{#if onMarket}}
-  <a href="/cards/{{id}}"><img class="inventory" src="{{image}}"></a>
-  <a href="/cards/{{id}}"><p><b>{{name}}</b></p></a>
-{{/if}}
-
-{{/each}}
-
-
+<br />
+<p><b><a href="/cards/search">Add a new card to your inventory!</a></b></p>
+<br />
+<p><b><a href="/trade/submit">Post a card to the market!</a></b></p>
+<br />
 <p><b>Remove a card from inventory</b></p>
 
 <form class="" action="/user/profile" method="post">
 <select class="card-removal" name="removedCard">
   <option value=""></option>
   {{#each currentUser.ownCards}}
-  <option value="{{uniqueId}}">{{name}}</option>
+  <option value="{{uniqueId}}">{{uniqueId}}</option>
   {{/each}}
 </select>
 <button type="submit" name="button">Remove Card</button>

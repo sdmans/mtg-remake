@@ -49,7 +49,7 @@ cardRouter.get('/namesearch/:set/:type', function(req, res) {
 
 }).post('/namesearch/:set/:type', function(req, res) {
   const location = req.body.nameselector
-  console.log(location)
+  // console.log(location)
   res.redirect(`/cards/${location}`)
 })
 

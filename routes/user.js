@@ -44,18 +44,21 @@ userRouter.get('/profile', function(req, res) {
   const currentUser = req.user
   const inventory = req.user.ownCards
   const removeCardValue = req.body.removedCard
+  console.log(inventory)
 
   for(i = 0; i<inventory.length; i++) {
+
     if(inventory[i].uniqueId === removeCardValue) {
+
       console.log(inventory[i].name + ` found at position ${i}`)
       console.log('removing from Array...')
+
       inventory.splice(i, 1)
       console.log(inventory)
       currentUser.save()
       res.redirect('/user/profile')
     } else {
-      console.log('No Card Selected')
-      res.redirect('/user/profile')
+        console.log('card not found')
     }
   }
 
