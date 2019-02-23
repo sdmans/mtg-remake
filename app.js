@@ -13,7 +13,7 @@ const localStrategy = require('passport-local').Strategy
 
 //Connecting to Database
 // mongoose.connect('mongodb://smans:dec122188@cluster0-shard-00-00-9pk1p.mongodb.net:27017,cluster0-shard-00-01-9pk1p.mongodb.net:27017,cluster0-shard-00-02-9pk1p.mongodb.net:27017/Cluster0?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin')
-mongoose.connect('mongodb://smans:dec122188@ds157268.mlab.com:57268/smgear123')
+mongoose.connect('mongodb://smans:dec122188@ds157268.mlab.com:57268/smgear123', {useNewUrlParser: true})
 //Initiating application and require routes
 const app = express()
 
@@ -30,7 +30,16 @@ app.engine('handlebars', hbs({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
 
 //Authentication
-app.use(expressSession({secret: 'mySecretKey'}))
+/* Code deprecated. Use https://github.com/expressjs/session */
+
+// app.use(expressSession({secret: 'mySecretKey'}))
+app.use(expressSession({
+  secret: 'mySecretKey',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: 'auto' }//cookie.secure option can also be set to the special value 'auto' to have this setting automatically match the determined security of the connection.
+}));
+
 app.use(passport.initialize())
 app.use(passport.session())
 
