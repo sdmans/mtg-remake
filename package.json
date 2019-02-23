@@ -24,7 +24,7 @@
     "express": "^4.16.4",
     "express-handlebars": "^3.0.1",
     "express-session": "^1.15.6",
-    "mongoose": "^4.13.18",
+    "mongoose": "^5.4.15",
     "mtgsdk": "^0.3.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",

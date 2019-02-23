@@ -78,7 +78,7 @@ cardRouter.get('/:multiverseid', function(req, res) {
 
   mtg.card.find(id)
     .then(result => {
-
+      console.log(`now logging result ${this}`);
       const chosenCard = {
         name: result.card.name,
         type: result.card.type,
