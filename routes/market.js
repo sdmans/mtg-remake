@@ -12,14 +12,14 @@ const Market = require('../models/Market.js')
 marketRouter.get('/market', function (req, res) {
   // let submittingUser = req.user
   // if(submittingUser != undefined){
+    /* Created an empty array to add card market collection on mongodb database https://stackoverflow.com/questions/5794834/how-to-access-a-preexisting-collection-with-mongoose */
       let currentCardsOnMarket = [];
       mongoose.connection.db.collection('markets', function( err, collection) {
         collection.find('postedCards').toArray(function (err, docs) {
           currentCardsOnMarket = docs[0].postedCards;
           // console.log(currentCardsOnMarket);
-          res.render('market/market', {currentCardsOnMarket})
-        });
-        
+          res.render('market/market', {currentCardsOnMarket});
+        });  
       });
     
     
@@ -50,10 +50,7 @@ marketRouter.get('/market', function (req, res) {
 })
 
 /* 2/25/19 Note: Code below controls the cardSubmit view available when you choose to submit a card to the market */
-/*
-
-  */
-
+/* Personal note. Need to update the post remove functionality so that only the proper users can remove their cards when signed in */
  marketRouter.get('/submit', function(req, res) {
   let submittingUser = req.user
   res.render('market/cardsubmit', {submittingUser})
