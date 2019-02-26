@@ -56,8 +56,6 @@ app.use('/user', userController)
 //Requiring User model
 const User = require('./models/User')
 
-
-
 passport.use(new localStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())

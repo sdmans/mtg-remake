@@ -1,5 +1,33 @@
 <h2>Market Page</h2>
 
+{{#if currentCardsOnMarket}}
+<div class="container" style="width: 70%;">
+  <div class="row text-center">
+{{#each currentCardsOnMarket}}
+  <div class="col-md-3">
+    <a href="/cards/{{id}}"><img class="inventory" src="{{image}}" alt="{{name}} image"></a>
+    <p><b>{{name}}</b></p>
+    <p>Posted by {{owner}}</p>
+  </div>
+  {{/each}}
+  </div>
+</div>
+
+<p><b>Remove a Card from the Market</b></p>
+
+<form class="market-form" action="/trade/market" method="post">
+<select class="market-card" name="marketSelector">
+
+  <option value=""></option>
+  {{#each currentCardsOnMarket}}
+  <option value="{{uniqueId}}">{{name}}</option>
+  {{/each}}
+</select>
+<button type="submit" name="button">Remove Card</button>
+</form>
+
+{{/if}}
+<!--
 {{#if currentMarket}}
 <div class="container" style="width: 70%;">
   <div class="row text-center">
@@ -29,3 +57,5 @@
 </form>
 
 {{/if}}
+
+-->

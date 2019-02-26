@@ -14,7 +14,7 @@ userRouter.get('/register', function(req, res) {
     username: req.body.username
   }), req.body.password, function (err, user) {
     if (err) {
-      console.log('error Occurred')
+      console.log('error occurred')
       return res.render('user/register', {user: user})
     }
     passport.authenticate('local')(req, res, function() {
