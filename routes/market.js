@@ -10,25 +10,34 @@ const Market = require('../models/Market.js')
 
 //Need to get the current market to exist before I start submitting information to it
 marketRouter.get('/market', function (req, res) {
+  const currentUser = req.user;
+
+  if (currentUser) {
+    console.log("Currently signed in as ", currentUser);
+  } else {
+    console.log('Not currently signed in');
+  }
+
   // let submittingUser = req.user
   // if(submittingUser != undefined){
     /* Created an empty array to add card market collection on mongodb database https://stackoverflow.com/questions/5794834/how-to-access-a-preexisting-collection-with-mongoose */
       let currentCardsOnMarket = [];
       mongoose.connection.db.collection('markets', function( err, collection) {
+        if (err) {
+          //console log the error, this may be used later once I start testing for problems.
+          console.log("An error occurred", err);
+        }
         collection.find('postedCards').toArray(function (err, docs) {
           currentCardsOnMarket = docs[0].postedCards;
           // console.log(currentCardsOnMarket);
-          res.render('market/market', {currentCardsOnMarket});
+          res.render('market/market', {currentCardsOnMarket, currentUser});
         });  
       });
-    
-    
-  // res.render('market/market', {currentMarket})
-// else{
-//   res.render('market/market')
-// }
-// console.log('get request is ', req);
-})
+}).post('/market', function(req, res) {
+  
+});
+
+
 /*
 .post('/market', function(req, res) {
   console.log('post request is ', req);
@@ -59,7 +68,7 @@ marketRouter.get('/market', function (req, res) {
   let cardValue = req.body.inventoryselector
   // console.log(cardValue)
   let currentCards = submittingUser.ownCards
-  console.log("Current cards are", currentCards);
+  // console.log("Current cards are", currentCards);
 })
   /*
 

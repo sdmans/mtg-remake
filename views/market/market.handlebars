@@ -13,6 +13,7 @@
   </div>
 </div>
 
+{{#if currentUser}}
 <p><b>Remove a Card from the Market</b></p>
 
 <form class="market-form" action="/trade/market" method="post">
@@ -25,7 +26,7 @@
 </select>
 <button type="submit" name="button">Remove Card</button>
 </form>
-
+{{/if}}
 {{/if}}
 <!--
 {{#if currentMarket}}
