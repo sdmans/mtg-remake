@@ -18,7 +18,7 @@ userRouter.get('/register', function(req, res) {
       return res.render('user/register', {user: user})
     }
     passport.authenticate('local')(req, res, function() {
-      console.log(user)
+      // console.log(user)
       res.redirect('/')
     })
   })
@@ -50,11 +50,11 @@ userRouter.get('/profile', function(req, res) {
 
     if(inventory[i].uniqueId === removeCardValue) {
 
-      console.log(inventory[i].name + ` found at position ${i}`)
-      console.log('removing from Array...')
+      // console.log(inventory[i].name + ` found at position ${i}`)
+      // console.log('removing from Array...')
 
       inventory.splice(i, 1)
-      console.log(inventory)
+      // console.log(inventory)
       currentUser.save()
       res.redirect('/user/profile')
     } else {
