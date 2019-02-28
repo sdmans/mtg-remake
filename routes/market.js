@@ -1,6 +1,7 @@
-const express = require('express')
-const marketRouter = express.Router()
+const express = require('express');
+const marketRouter = express.Router();
 const mongoose = require('mongoose');
+const User = require('../models/User.js');
 
 //Requiring Market Schema
 const Market = require('../models/Market.js')
@@ -77,7 +78,7 @@ marketRouter.get('/market', function (req, res) {
   let submittingUser = req.user;
   /* cardValue takes the uniqueId value from the selector which is also present in the req.user.ownCards array card objects */
   let selectedCardValue = req.body.inventoryselector;
-  console.log(req.body);
+  // console.log(req.body);
   let userCards = submittingUser.ownCards;//Stores user's own cards to a variable.
   // console.log("User's cards are ", userCards);
 
@@ -85,31 +86,59 @@ marketRouter.get('/market', function (req, res) {
   /* Need to find a way to add the card to market, then toggle whether the card has been posted or not in it's user collection. 
   This would been toggling and saving in the post. Then navigate to the market. 
   */
-userCards.forEach(function(card, index) {
-  if(card.uniqueId === selectedCardValue) {
-    console.log(`Card found at ${index}:`, card);
-  }
-});
+    console.log(submittingUser._id);
+    let userId = submittingUser._id;
+    
+    // console.log(submittingUser.ownCards);
+    // console.log(`Card found at ${index}:`, card);
+
+      
+      req.user.ownCards.forEach(function(card, index) {
+        if(card.uniqueId === selectedCardValue) {
+          console.log(card.onMarket)
+          card.onMarket = !card.onMarket;
+          console.log(card.onMarket)
+          // console.log(card);
+          req.user.save();
+          res.redirect('/user/profile')
+          console.log(card.onMarket);
+        } else {
+          return;
+        }
+        // user.save(function (err) {
+        //   console.log('...saving');
+        //   console.log(card);
+        //   if (err) {
+        //     console.error('ERROR!');
+        //   }
+        // });
+      })
+      
+      console.log(req.user.ownCards);
+  
+      // User.findOne({_id: userId}, function (err, user){ })
+
+
+    // mongoose.connection.db.collection('markets', function( err, collection) {
+    //   if (err) {
+    //     //console log the error, this may be used later once I start testing for problems.
+    //     console.log("An error occurred", err);
+    //   }
+    //   collection.find('postedCards').toArray(function (err, docs) {
+    //     if (err) {
+    //       //console log the error, this may be used later once I start testing for problems.
+    //       console.log("An error occurred", err);
+    //     } else {
+    //       let currentCardsOnMarket = docs[0].postedCards;
+    //       // console.log(currentCardsOnMarket);
+    //     }
+    
+    //   }); 
+    
+    // });
+  
+
 //  if(userCards[i].uniqueId === cardValue) {
-
- mongoose.connection.db.collection('markets', function( err, collection) {
-  if (err) {
-    //console log the error, this may be used later once I start testing for problems.
-    console.log("An error occurred", err);
-  }
-  collection.find('postedCards').toArray(function (err, docs) {
-    if (err) {
-      //console log the error, this may be used later once I start testing for problems.
-      console.log("An error occurred", err);
-    } else {
-      let currentCardsOnMarket = docs[0].postedCards;
-      // console.log(currentCardsOnMarket);
-    }
-
-  }); 
-
-});
-
 
 })
   /*
