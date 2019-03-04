@@ -93,15 +93,82 @@ marketRouter.get('/market', function (req, res) {
     // console.log(`Card found at ${index}:`, card);
 
       
-      req.user.ownCards.forEach(function(card, index) {
-        if(card.uniqueId === selectedCardValue) {
-          console.log(card.onMarket)
-          card.onMarket = !card.onMarket;
-          console.log(card.onMarket)
+      submittingUser.ownCards.forEach(function(card) {
+        let uniqueCardId = card.uniqueId;
+        if(uniqueCardId === selectedCardValue) {
+          card.onMarket = !card.onMarket
+          // submittedCard.onMarket = !submittedCard.onMarket;
+          let updatedCollection = submittingUser.ownCards;
+          console.log(updatedCollection[0]);
+
+          let query = {_id: userId};
+
+          mongoose.connection.db.collection('users', function (err, collection) {
+            if (err) {
+              console.error(err);
+            } else {
+              /* Used this stackoverflow to solve the saving issue. Should implement this solution to the market too! https://stackoverflow.com/questions/38883285/error-the-update-operation-document-must-contain-atomic-operators-when-running/38883596 
+              Here's a link to the documentation that explains the $set update operator https://docs.mongodb.com/manual/reference/method/db.collection.findOneAndUpdate/ and an explanation of the update operators*/
+              collection.findOneAndUpdate(query, {$set: {"ownCards": updatedCollection}}, {upsert: false}, function(err) {
+                if (err){
+                  console.error(err);
+                } else {
+                  res.redirect('/user/profile');
+                }
+              });
+            }
+          })
+
+
+
+          // User.findOneAndUpdate(query, submittedCard, {upsert: false}, function (err, user){ 
+          //   if (err) {
+          //     console.error(err);
+          //     return;
+          //   } else {
+          //     user.ownCards.forEach(function(card) {
+          //       if (card.uniqueId === submittedCard.uniqueId) {
+          //         card.uniqueId = !card.uniqueId;
+          //         res.redirect('/user/profile');
+          //       } else {
+          //         return;
+          //       }
+                
+          //     })
+              
+              
+          //   }
+          // });
+
+
           // console.log(card);
-          req.user.save();
-          res.redirect('/user/profile')
-          console.log(card.onMarket);
+          /* Code to find posted cards object */
+          
+          /* Try this later: https://stackoverflow.com/questions/7267102/how-do-i-update-upsert-a-document-in-mongoose */
+          /*
+          mongoose.connection.db.collection('markets', function( err, collection) {
+            if (err) {
+              //console log the error, this may be used later once I start testing for problems.
+              console.log("An error occurred", err);
+            }
+
+            
+          collection.findOne({name: 'markets'},function (err, marketObj) {
+          if (err) {
+            //console log the error, this may be used later once I start testing for problems.
+            console.log("An error occurred", err);
+          } else {
+           let postedCards = marketObj
+          //  postedCards.push(card);
+           console.log("Posted cards are", postedCards);
+          //  console.log(postedCards);
+          }
+        })
+      })
+      */
+          /* The save below doesn't seem to be working */
+          // console.log(req)
+
         } else {
           return;
         }
@@ -114,7 +181,7 @@ marketRouter.get('/market', function (req, res) {
         // });
       })
       
-      console.log(req.user.ownCards);
+      // console.log(req.user.ownCards);
   
       // User.findOne({_id: userId}, function (err, user){ })
 
