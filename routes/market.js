@@ -14,19 +14,19 @@ marketRouter.get('/market', function (req, res) {
   let currentUser = req.user;
 
   if (currentUser) {
-    console.log("Currently signed in as ", currentUser);
+    console.log("Currently signed in as ", currentUser.username);
   } else {
-    console.log('Not currently signed in');
+    console.log('Viewing market but not currently signed in');
   }
 
   // if(submittingUser != undefined){
     /* Created an empty array to add card market collection on mongodb database https://stackoverflow.com/questions/5794834/how-to-access-a-preexisting-collection-with-mongoose */
       let currentCardsOnMarket = [];
-      mongoose.connection.db.collection('markets', function( err, collection) {
+      mongoose.connection.db.collection('markets', function(err, collection) {
         if (err) {
           //console log the error, this may be used later once I start testing for problems.
-          console.log("An error occurred", err);
-        }
+          console.err("An error occurred", err);
+        } else {
         collection.find('postedCards').toArray(function (err, docs) {
           if (err) {
             //console log the error, this may be used later once I start testing for problems.
@@ -36,8 +36,8 @@ marketRouter.get('/market', function (req, res) {
             // console.log(currentCardsOnMarket);
             res.render('market/market', {currentCardsOnMarket, currentUser});
           }
-        }); 
-
+        });
+      } 
       });
 }).post('/market', function(req, res) {
   /* Store and check for currentUser */
@@ -113,103 +113,26 @@ marketRouter.get('/market', function (req, res) {
                 if (err){
                   console.error(err);
                 } else {
+                  /* Push new card to the market */
+                  mongoose.connection.db.collection('markets', function (err, collection) {
+                    if (err) {
+                      console.error(err);
+                    } else {
+                      let currentMarket = collection.find()
+                    }
+                  })
                   res.redirect('/user/profile');
                 }
               });
             }
           })
 
-
-
-          // User.findOneAndUpdate(query, submittedCard, {upsert: false}, function (err, user){ 
-          //   if (err) {
-          //     console.error(err);
-          //     return;
-          //   } else {
-          //     user.ownCards.forEach(function(card) {
-          //       if (card.uniqueId === submittedCard.uniqueId) {
-          //         card.uniqueId = !card.uniqueId;
-          //         res.redirect('/user/profile');
-          //       } else {
-          //         return;
-          //       }
-                
-          //     })
-              
-              
-          //   }
-          // });
-
-
-          // console.log(card);
-          /* Code to find posted cards object */
-          
-          /* Try this later: https://stackoverflow.com/questions/7267102/how-do-i-update-upsert-a-document-in-mongoose */
-          /*
-          mongoose.connection.db.collection('markets', function( err, collection) {
-            if (err) {
-              //console log the error, this may be used later once I start testing for problems.
-              console.log("An error occurred", err);
-            }
-
-            
-          collection.findOne({name: 'markets'},function (err, marketObj) {
-          if (err) {
-            //console log the error, this may be used later once I start testing for problems.
-            console.log("An error occurred", err);
-          } else {
-           let postedCards = marketObj
-          //  postedCards.push(card);
-           console.log("Posted cards are", postedCards);
-          //  console.log(postedCards);
-          }
-        })
-      })
-      */
-          /* The save below doesn't seem to be working */
-          // console.log(req)
-
         } else {
           return;
         }
-        // user.save(function (err) {
-        //   console.log('...saving');
-        //   console.log(card);
-        //   if (err) {
-        //     console.error('ERROR!');
-        //   }
-        // });
-      })
-      
-      // console.log(req.user.ownCards);
-  
-      // User.findOne({_id: userId}, function (err, user){ })
-
-
-    // mongoose.connection.db.collection('markets', function( err, collection) {
-    //   if (err) {
-    //     //console log the error, this may be used later once I start testing for problems.
-    //     console.log("An error occurred", err);
-    //   }
-    //   collection.find('postedCards').toArray(function (err, docs) {
-    //     if (err) {
-    //       //console log the error, this may be used later once I start testing for problems.
-    //       console.log("An error occurred", err);
-    //     } else {
-    //       let currentCardsOnMarket = docs[0].postedCards;
-    //       // console.log(currentCardsOnMarket);
-    //     }
-    
-    //   }); 
-    
-    // });
-  
-
-//  if(userCards[i].uniqueId === cardValue) {
-
-})
-  /*
-
+      });
+});
+/*
 //Query the card based on uniqueId
 for(i = 0; i < currentCards.length; i++) {
   if(currentCards[i].uniqueId === cardValue) {
@@ -238,9 +161,6 @@ for(i = 0; i < currentCards.length; i++) {
     console.log(currentMarket)
   }
 }
-
-
-
 
 //code to remove cards
 
