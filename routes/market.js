@@ -43,7 +43,7 @@ marketRouter.get('/market', function (req, res) {
   /* Store and check for currentUser */
   let currentUser = req.user;
   if(currentUser) {
-  console.log(currentUser.ownCards);
+  // console.log(currentUser.ownCards);
   }
   
 });
@@ -94,12 +94,13 @@ marketRouter.get('/market', function (req, res) {
 
       
       submittingUser.ownCards.forEach(function(card) {
+        let submittedCard = card;
         let uniqueCardId = card.uniqueId;
         if(uniqueCardId === selectedCardValue) {
           card.onMarket = !card.onMarket
           // submittedCard.onMarket = !submittedCard.onMarket;
           let updatedCollection = submittingUser.ownCards;
-          console.log(updatedCollection[0]);
+          // console.log(updatedCollection[0]);
 
           let query = {_id: userId};
 
@@ -118,7 +119,24 @@ marketRouter.get('/market', function (req, res) {
                     if (err) {
                       console.error(err);
                     } else {
-                      let currentMarket = collection.find()
+                      collection.find('owncards').toArray(function (err, docs) {
+                        if (err) {
+                          //console log the error, this may be used later once I start testing for problems.
+                          console.log("An error occurred", err);
+                        } else {
+                          let currentMarket = docs[0].postedCards;
+                          console.log("The current market is ", currentMarket);
+                          // console.log(submittedCard);
+                            if (submittedCard.onMarket === true) {
+                              submittedCard.owner = submittingUser.username;
+                              // console.log(submittingUser, submittedCard)
+                              console.log(submittedCard);
+                              currentMarket.push(submittedCard);
+                              console.log("Current market has ", currentMarket);
+                            }
+                          
+                        }
+                      });
                     }
                   })
                   res.redirect('/user/profile');
@@ -128,6 +146,7 @@ marketRouter.get('/market', function (req, res) {
           })
 
         } else {
+          /* Returns if card uniqueID's don't match */
           return;
         }
       });
