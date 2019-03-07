@@ -1,9 +1,9 @@
 const express = require('express');
 const marketRouter = express.Router();
 const mongoose = require('mongoose');
-const User = require('../models/User.js');
 
-//Requiring Market Schema
+//Requiring User Market Schema
+const User = require('../models/User.js');
 const Market = require('../models/Market.js')
 
 //Create currentMarket Object using Schema
@@ -96,8 +96,8 @@ marketRouter.get('/market', function (req, res) {
       submittingUser.ownCards.forEach(function(card) {
         let submittedCard = card;
         let uniqueCardId = card.uniqueId;
-        if(uniqueCardId === selectedCardValue) {
-          card.onMarket = !card.onMarket
+        if(uniqueCardId === selectedCardValue && card.onMarket === false) {
+          card.onMarket = true;
           // submittedCard.onMarket = !submittedCard.onMarket;
           let updatedCollection = submittingUser.ownCards;
           // console.log(updatedCollection[0]);
@@ -115,6 +115,30 @@ marketRouter.get('/market', function (req, res) {
                   console.error(err);
                 } else {
                   /* Push new card to the market */
+                  let marketQuery = {__v: 1};
+                  /* Documentation for the findOne() mongoose method https://mongoosejs.com/docs/api.html#model_Model.findOne */
+                  Market.findOne(marketQuery, 'postedCards', function(err, market) {
+                    if (err) {
+                      console.error(err);
+                    } else {
+                    console.log(market);
+                      let currentMarket = market.postedCards;
+                      /* If statement checks to see if the card is currently onMarket  and will return a message if*/
+                          if(submittedCard.onMarket === true) {
+                            submittedCard.owner = submittingUser.username;
+                            // console.log(submittingUser, submittedCard)
+                            console.log(submittedCard);
+                            currentMarket.push(submittedCard);
+                            console.log("Current market has ", currentMarket);
+                            market.save();
+                            return;
+                        } else {
+                          return console.log('Card could not be submitted. Has it already been posted?');
+                        }
+                      }
+                  });
+                 
+                  /*
                   mongoose.connection.db.collection('markets', function (err, collection) {
                     if (err) {
                       console.error(err);
@@ -133,12 +157,15 @@ marketRouter.get('/market', function (req, res) {
                               console.log(submittedCard);
                               currentMarket.push(submittedCard);
                               console.log("Current market has ", currentMarket);
+                              // docs.save();
+                            } else {
+                              return console.log('Card could not be added to the market, has it already been posted?', submittedCard.onMarket);
                             }
                           
                         }
                       });
                     }
-                  })
+                  }) */
                   res.redirect('/user/profile');
                 }
               });
@@ -147,7 +174,7 @@ marketRouter.get('/market', function (req, res) {
 
         } else {
           /* Returns if card uniqueID's don't match */
-          return;
+          return console.log('It looks like there was a problem, has this card has already been posted?', card.onMarket);
         }
       });
 });
