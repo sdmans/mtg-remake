@@ -96,7 +96,8 @@ marketRouter.get('/market', function (req, res) {
       submittingUser.ownCards.forEach(function(card) {
         let submittedCard = card;
         let uniqueCardId = card.uniqueId;
-        if(uniqueCardId === selectedCardValue && card.onMarket === false) {
+        if(uniqueCardId === selectedCardValue) {
+          if(card.onMarket === false) {
           card.onMarket = true;
           // submittedCard.onMarket = !submittedCard.onMarket;
           let updatedCollection = submittingUser.ownCards;
@@ -171,11 +172,14 @@ marketRouter.get('/market', function (req, res) {
               });
             }
           })
-
         } else {
-          /* Returns if card uniqueID's don't match */
-          return console.log('It looks like there was a problem, has this card has already been posted?', card.onMarket);
+          console.log('It looks like there was a problem, has this card has already been posted?', card.onMarket);
+          return res.redirect('/user/profile');
         }
+      } else {
+          /* Returns if card uniqueID's don't match */
+          return console.log(`${card.name} doesn't match selected card`);
+      }
       });
 });
 /*
