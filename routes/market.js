@@ -41,9 +41,34 @@ marketRouter.get('/market', function (req, res) {
       });
 }).post('/market', function(req, res) {
   /* Store and check for currentUser */
+  let selectedCard = req.body.marketSelector;
+  let marketQuery = {__v: 1};
+
+  Market.findOne(marketQuery, 'postedCards', function(err, market) {
+    if (err) {
+      console.error(err);
+      return;
+    } else {
+      let cardsOnMarket = market.postedCards;
+      cardsOnMarket.map((card, index) => {
+        if (card.uniqueId === selectedCard) {
+          return console.log(index, card);
+        } else {
+          return;
+        }
+      })
+  }
+});
+  // console.log(cardsOnMarket);
+  // console.log(req.body.marketSelector);
+  // cardsOnMarket.map((card, index) =>{
+  //   console.log(index, card);
+  // })
+
   let currentUser = req.user;
   if(currentUser) {
-  // console.log(currentUser.ownCards);
+  console.log(currentUser.ownCards);
+  return;
   }
   
 });
