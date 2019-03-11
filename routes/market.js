@@ -41,7 +41,7 @@ marketRouter.get('/market', function (req, res) {
       });
 }).post('/market', function(req, res) {
   /* Store and check for currentUser */
-  let selectedCard = req.body.marketSelector;
+  let selectedCardId = req.body.marketSelector;
   let marketQuery = {__v: 1};
 
   Market.findOne(marketQuery, 'postedCards', function(err, market) {
@@ -50,9 +50,46 @@ marketRouter.get('/market', function (req, res) {
       return;
     } else {
       let cardsOnMarket = market.postedCards;
-      cardsOnMarket.map((card, index) => {
-        if (card.uniqueId === selectedCard) {
-          return console.log(index, card);
+      cardsOnMarket.map((marketCard, index) => {
+        if (marketCard.uniqueId === selectedCardId) {
+          // console.log(index, marketCard);
+          /* Remove card from the market array, then toggle it in the user's inventory*/
+          cardsOnMarket.splice(index,1);//Deletes the card based on the index from the map method
+          // console.log(cardsOnMarket);
+          market.save();//saving the market once the card is removed from the array
+
+          /* Find the card in the user's inventory to change the onMarket flag after it's taken town */
+          let userQuery = {username: marketCard.owner};//Query based on username
+
+          User.findOne(userQuery, 'ownCards', function(err, user) {
+            if (err) {
+              console.error(err);
+            } else {
+              user.ownCards.map((userCard, index) => {
+                // console.log(userCard.uniqueId);
+                if(userCard.uniqueId === marketCard.uniqueId) {
+                  // console.log('Card matches', index, userCard);
+                  userCard.onMarket = false;//toggling the card back to false once it's removed from the market
+                  let updatedCollection = user.ownCards;//Stores updated user's cards to variable for update saving
+                  User.findOneAndUpdate(userQuery, {$set: {"ownCards": updatedCollection}}, {upsert: false}, (currentUser, err) => {
+                    if (err) {
+                      console.error(err);
+                    } else {
+                      
+                      currentUser.save();//saving user with updated inventory
+                      return console.log("Saving updated user's inventory");
+                    }
+                  });
+                  console.log("Redirecting...");
+                  res.redirect('/trade/market');
+                } else {
+                  return console.log('Card not found')//Returns if no card is found;
+                }
+              });
+            }
+          });
+          
+          return;
         } else {
           return;
         }

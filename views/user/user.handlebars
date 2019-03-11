@@ -34,7 +34,7 @@
 
 <form class="" action="/user/profile" method="post">
 <select class="card-removal" name="removedCard">
-  <option value=""></option>
+  <option value="">Select a card</option>
   {{#each currentUser.ownCards}}
   <option value="{{uniqueId}}">{{uniqueId}}</option>
   {{/each}}

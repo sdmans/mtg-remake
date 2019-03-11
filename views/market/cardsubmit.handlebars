@@ -17,7 +17,7 @@
 
   <form class="submit-form" action="/trade/submit" method="post">
       <select class="inventory-select" name="inventoryselector">
-        <option value=""></option>
+        <option value="">Select a card</option>
         {{#each submittingUser.ownCards}}
         <option value="{{uniqueId}}">{{name}}</option>
         {{/each}}
