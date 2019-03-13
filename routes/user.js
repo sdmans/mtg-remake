@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const passport = require('passport')
 const User = require('../models/User.js')
+const Market = require('../models/Market')
 
 const userRouter = express.Router()
 
@@ -43,22 +44,44 @@ userRouter.get('/profile', function(req, res) {
 }).post('/profile', function(req, res) {
   const currentUser = req.user
   const inventory = req.user.ownCards
-  const removeCardValue = req.body.removedCard
-  console.log(inventory)
+  const removedCardValue = req.body.removedCard
+  // console.log(inventory)
 
   for(i = 0; i<inventory.length; i++) {
 
-    if(inventory[i].uniqueId === removeCardValue) {
-
+    if(inventory[i].uniqueId === removedCardValue) {
       // console.log(inventory[i].name + ` found at position ${i}`)
       // console.log('removing from Array...')
+      // console.log(inventory[i]);
 
-      inventory.splice(i, 1)
+      let marketQuery = {__v: 1};
+      Market.findOne(marketQuery, 'postedCards', function(err, market) {
+        if (err) {
+          console.error(err);
+          return;
+        } else {
+          let postedCards = market.postedCards;
+
+          postedCards.map((card, index) => {
+            if (card.uniqueId === removedCardValue) {
+              console.log("Removing the following card from market: ", card);
+              postedCards.splice(index, 1);
+              market.save();
+            } else {
+              return;
+            }
+          });
+        }
+      });
+      console.log('removing card from inventory: ', inventory[i]);
+      inventory.splice(i, 1);
+
       // console.log(inventory)
-      currentUser.save()
-      res.redirect('/user/profile')
+      currentUser.save();
+      /* Find a way to remove the card if it's posted on the market as well */
+      res.redirect('/user/profile');
     } else {
-        console.log('card not found')
+        console.log('card not found');
     }
   }
 
