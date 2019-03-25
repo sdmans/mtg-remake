@@ -1,17 +1,16 @@
-<h2>Market Page</h2>
+<h2>Market View</h2>
 
 {{#if currentCardsOnMarket}}<!-- Checks if market exists, then displays the code below -->
-<div class="container" style="width: 70%;">
   <div class="row text-center">
 {{#each currentCardsOnMarket}}<!-- displays each card on the market -->
-  <div class="col-md-3">
+  <div class="col-md-3 col-sm-6">
     <a href="/cards/{{id}}"><img class="inventory" src="{{image}}" alt="{{name}} image"></a>
     <p><b>{{name}}</b></p>
     <p>Posted by {{owner}}</p>
   </div>
   {{/each}}
   </div>
-</div>
+
 
   {{#if currentUser}}<!-- If a user is present, display the markup below -->
   <p><b>Remove a Card from the Market</b></p>

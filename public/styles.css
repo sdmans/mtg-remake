@@ -1,16 +1,41 @@
-
-body {
-  padding-left: 300px;
-  padding-right: 300px;
+header {
+  margin: 20px 0px 20px 0px;
 }
 
-h1 {
-  color: blue;
+main {
+  min-height: 700px;
 }
 
 footer {
-  padding-top: 50px;
-  padding-bottom: 50px;
+  height: 60px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+footer > * {
+  padding-top: 20px;
+}
+
+footer > p {
+  color: white;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+p.auth-notify {
+  font-size: 30px;
+  text-align: center;
+}
+
+p.auth-notify >  a {
+  text-decoration: none;
+  color: darkblue;
+}
+
+p.auth-notify > a:hover {
+  color: darkcyan;
 }
 
 .set-list {

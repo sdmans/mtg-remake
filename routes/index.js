@@ -13,8 +13,8 @@ const express = require('express')
 const appRouter = express.Router()
 
 appRouter.get('/', function( req, res) {
-  const activeUser = req.user
-  res.render('index', {activeUser})
+  const currentUser = req.user
+  res.render('index', {currentUser});//Gives template access to the currentUser Object
 }).post('/', function(req, res) {
     req.logout()
     res.redirect('/')

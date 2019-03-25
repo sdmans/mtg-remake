@@ -30,7 +30,7 @@ app.engine('handlebars', hbs({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
 
 //Authentication
-/* Code deprecated. Use https://github.com/expressjs/session */
+/* Previous Code deprecated. Use https://github.com/expressjs/session to update! *Complete* */
 
 // app.use(expressSession({secret: 'mySecretKey'}))
 app.use(expressSession({

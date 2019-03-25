@@ -1,5 +1,7 @@
+<h2>Profile View</h2>
+
 {{#unless currentUser}}
-<h3>Sign in to view profile!</h3>
+<p class="auth-notify"><a href="/user/register">Sign in</a> to view profile!</p>
 {{/unless}}
 
 {{#if currentUser}}
@@ -11,10 +13,9 @@
 
 
 <h3>Cards in Inventory</h3>
-<div class="container" style="width: 70%;">
   <div class="row text-center">
 {{#each currentUser.ownCards}}
-  <div class="col-md-3">
+  <div class="col-md-3 col-sm-6">
   <a href="/cards/{{id}}"><img class="inventory" src="{{image}}"></a>
   <a href="/cards/{{id}}"><p class="card-name"><b>{{name}}</b></p></a>
   {{!-- {{#if onMarket}} --}}
@@ -24,7 +25,7 @@
 {{/each}}
 
 </div>
-</div>
+
 <br />
 <p><b><a href="/cards/search">Add a new card to your inventory!</a></b></p>
 <br />
