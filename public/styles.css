@@ -1,15 +1,45 @@
+html, body {
+ height: 100%;
+ position: relative;
+}
+
+/* Nav Styles start here */
+ul.navbar-nav {
+  margin: 0 auto;
+}
+
+a.nav-link {
+  font-size: 18px;
+}
+
+/* Nav styles end */
+
+main.container {
+ overflow: hidden;
+ display: block;
+ position: relative;
+ padding-bottom: 60px; 
+}
+
+main > h2 {
+  margin-bottom: 20px;
+}
+
 header {
-  margin: 20px 0px 20px 0px;
+  padding: 16px 10px 10px 10px;
+  border-bottom: 1px solid black;
+  margin-bottom: 20px;
 }
 
-main {
-  min-height: 700px;
-}
-
+/* Footer Styles */
+/* Styles that keeps footer at the bottom courtesy of https://medium.com/@zerox/keep-that-damn-footer-at-the-bottom-c7a921cb9551 */
 footer {
   height: 60px;
   text-align: center;
-  margin-top: 10px;
+  /* margin-top: 10px; */
+  position: absolute;
+  bottom: 0;
+  width: 100%
 }
 
 footer > * {
@@ -20,8 +50,21 @@ footer > p {
   color: white;
 }
 
+/* Footer Styles end */
+
+/* General Styles */
 h1, h2 {
   text-align: center;
+}
+
+/* div.options-container > * {
+  display: flex;
+  justify-content: left;
+} */
+
+hr.divider {
+  width: 100px;
+  margin-left: 0px;
 }
 
 p.auth-notify {
@@ -62,3 +105,5 @@ p.auth-notify > a:hover {
   padding-top: 20px;
   /*margin-left: -200%;*/
 }
+
+/* General Styles  end */

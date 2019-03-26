@@ -1,5 +1,4 @@
 <h2>Home View</h2>
-
 {{#if currentUser}}
 <p>Now logged in as {{currentUser.username}}</p>
 <form class="logout" action="/" method="post">
@@ -7,9 +6,12 @@
 </form>
 {{/if}}
 
-<main>
-<h3><a href="/cards/search">Search a specific card by set</a></h3>
-<h3><a href="/trade/market">Check out the market!</a></h3>
+<section>
+<div class="options-container">
+  <h3><a href="/cards/search">Search a specific card by set</a></h3>
+  <hr class="divider">
+  <h3><a href="/trade/market">Check out the market</a></h3>
+</div>
 <hr>
 <h4>Recent Sets</h4>
 
@@ -31,4 +33,4 @@
   <div class="soi">
     <a href='/sets/soi'>Shadows over Innistrad</a>
   </div>
-</main>
+</section>
