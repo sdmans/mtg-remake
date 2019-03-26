@@ -15,9 +15,10 @@ a.nav-link {
 /* Nav styles end */
 
 main.container {
- overflow: hidden;
+  /* Styles that keeps footer at the bottom courtesy of https://medium.com/@zerox/keep-that-damn-footer-at-the-bottom-c7a921cb9551 */
+ /* overflow: hidden;
  display: block;
- position: relative;
+ position: relative; */
  padding-bottom: 60px; 
 }
 
@@ -32,14 +33,15 @@ header {
 }
 
 /* Footer Styles */
-/* Styles that keeps footer at the bottom courtesy of https://medium.com/@zerox/keep-that-damn-footer-at-the-bottom-c7a921cb9551 */
+
 footer {
   height: 60px;
   text-align: center;
+  /* Styles that keeps footer at the bottom courtesy of https://medium.com/@zerox/keep-that-damn-footer-at-the-bottom-c7a921cb9551 */
   /* margin-top: 10px; */
-  position: absolute;
-  bottom: 0;
-  width: 100%
+  /* position: absolute; */
+  /* bottom: 0; */
+  /* width: 100% */
 }
 
 footer > * {
@@ -103,7 +105,6 @@ p.auth-notify > a:hover {
   width: 150px;
   height: 200px;
   padding-top: 20px;
-  /*margin-left: -200%;*/
 }
 
 /* General Styles  end */

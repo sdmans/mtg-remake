@@ -14,9 +14,9 @@ marketRouter.get('/market', function (req, res) {
   let currentUser = req.user;
 
   if (currentUser) {
-    console.log("Currently signed in as ", currentUser.username);
+    // console.log("Currently signed in as ", currentUser.username);
   } else {
-    console.log('Viewing market but not currently signed in');
+    // console.log('Viewing market but not currently signed in');
   }
 
   // if(submittingUser != undefined){
