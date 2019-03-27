@@ -1,3 +1,10 @@
+/* Custom CSS color */
+/* Declaring css variables */
+:root {
+  --a-color: #0D366F;
+  --a-hover-color: #869BB7;
+}
+
 html, body {
  height: 100%;
  position: relative;
@@ -69,18 +76,39 @@ hr.divider {
   margin-left: 0px;
 }
 
+hr.second-header {
+  width: 200px;
+  margin-bottom: 40px;
+}
+
 p.auth-notify {
   font-size: 30px;
   text-align: center;
 }
 
+/* Anchor Link CSS */
+
 p.auth-notify >  a {
   text-decoration: none;
-  color: darkblue;
+  color: var(--a-color);
 }
 
 p.auth-notify > a:hover {
-  color: darkcyan;
+  color: var(--a-hover-color);
+}
+
+h3 > a {
+  color: var(--a-color);
+}
+
+h3 > a:hover {
+  color: var(--a-hover-color);
+  text-decoration: none;
+}
+/* Anchor Link CSS ends */
+
+form.logout {
+  margin-bottom: 20px;
 }
 
 .set-list {
