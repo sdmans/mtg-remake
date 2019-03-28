@@ -6,6 +6,7 @@ const cardRouter = express.Router()
 //Testing Search function
 //Figure out how to handle blank entries
 cardRouter.get('/search', function(req, res) {
+  console.log('Accessing card search...')
   res.render('cards/search')
 }).post('/search', function(req, res) {
   //Store set to a variable

@@ -1,3 +1,3 @@
 $(document).ready(function () {
-// console.log("Document is ready!");
+console.log("Document is ready!");
 });

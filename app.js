@@ -24,6 +24,7 @@ const setController = require('./routes/set.js')
 const cardController = require('./routes/card.js')
 const marketController = require('./routes/market.js')
 const userController = require('./routes/user.js')
+const errorController = require('./routes/error-msg.js');
 
 //Setting handlebars stuff
 app.engine('handlebars', hbs({defaultLayout: 'main'}))
@@ -52,6 +53,9 @@ app.use('/sets', setController)
 app.use('/cards', cardController)
 app.use('/trade', marketController)
 app.use('/user', userController)
+app.use('*', errorController)//Set after the other routes so that it checks for them first before rerouting the user to the home page.
+
+
 
 //Requiring User model
 const User = require('./models/User')

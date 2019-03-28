@@ -12,7 +12,7 @@ Shadows Over Innistrad: soi
 const express = require('express')
 const appRouter = express.Router()
 
-appRouter.get('/', function( req, res) {
+appRouter.get('/', function( req, res ) {
   const currentUser = req.user
   res.render('index', {currentUser});//Gives template access to the currentUser Object
 }).post('/', function(req, res) {
