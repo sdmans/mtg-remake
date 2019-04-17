@@ -134,5 +134,16 @@ form.logout {
   height: 200px;
   padding-top: 20px;
 }
-
 /* General Styles  end */
+
+/* Media queries go here */
+
+/* Boostrap Media Query Details
+Small devices (tablets, 768px and up)
+
+Medium devices (desktops, 992px and up)
+Note: Hamburger menu appears below 992px
+
+Large devices (large desktops, 1200px and up)
+*/
+
