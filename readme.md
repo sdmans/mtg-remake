@@ -6,7 +6,7 @@ Right now, the project is hosted on Heroku! You can access the application with 
 
 I'm creating a test account that you can use to access the logged in features for this project. Once I've set up a few restrictions, I'll provide access to it here!
 
-__Note:__ Since this project is hosted for free on Heroku, it may be slow to load. To learn more about this, see their documentation on [free dyno hours](https://devcenter.heroku.com/articles/free-dyno-hours)!
+__Note:__ Since this project is hosted for free on Heroku, it may be slow to load at first. To learn more about this, see their documentation on [free dyno hours](https://devcenter.heroku.com/articles/free-dyno-hours)!
 
 ## Project Description
 __A Magic the Gathering application where you can view, store and trade cards between users. It will involve using the [Magic: The Gathering API](https://magicthegathering.io/) to retrieve information on the different cards in the game.__
