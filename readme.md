@@ -1,6 +1,10 @@
+
 # Magic the Gathering Collection Application:
+
+## Instructions
+
 ## Project Description
-__A Magic the Gathering application where you can view, store and trade cards between users. It will involve using the Magic: The Gathering API to retrieve information on the different cards in the game.__
+__A Magic the Gathering application where you can view, store and trade cards between users. It will involve using the [Magic: The Gathering API](https://magicthegathering.io/) to retrieve information on the different cards in the game.__
 
 
 ### 3 Main Features
@@ -64,3 +68,27 @@ mongoose
 passport
 passport-local
 cookie-parser
+
+## Post Project Summary 
+This is an updated version of my first application project. It was built using NodeJS, Express, MongoDB, Handlebars and PassportJS. Built as a single page application, I wanted to include concepts I'd learned over my first few months learning JavaScript.
+
+### Concepts Implemented
+* Asyncronous JavaScript
+* Server-Side Rendering with Handlebars and Express
+* Templating with Handlebars
+* Handling HTTP requests
+* Communicating with a MongoDB database
+* Basic account creation and authentication
+
+### Lessons Learned
+__NodeJS can do a lot!__\
+When I was planning out my project, finding the different tools I'd need to use was pretty overwhelming! I'd never really dug into npm's packages outside of setting up a few smaller projects. It was amazing to see all the different tools people use to accomplish different things and improve their applications!
+
+__Planning:__\
+ Before working on this project, I'd only ever worked with JavaScript on the front end. Working on this project taught me a lot about the importance of planning out your project beforehand. When you have a lot of ideas for a project, implementing them while you work can make the process complicated. It's important to have a basic idea or even a diagram mapped out so you don't go overboard with features.
+
+__APIs and Documentation__\
+Finding good documentation is super important when you're planning out a project. It's a good idea to test out APIs before you start building your application. If you don't, you'll definitely run into problems down the line. Some APIs have quirks, and you have to really think about which features you plan to use with them and test them ahead of time! Some of the features for the API I was using to retrieve data, required streams to get them to work. I wasn't familiar with how to work with streams. Luckily I was able to find another method for retrieving the card data I needed.
+
+### Plans for future changes
+I'm hoping that when I have more time, I can add the trading feature which was one of my extra goals for this project. Having worked on a few projects since I started this, I have a few ideas that I'd like to try out!
