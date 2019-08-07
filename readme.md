@@ -2,6 +2,7 @@
 # Magic the Gathering Collection Application:
 
 ## Instructions
+I've created a test account that you can use to access this project. Once I've set up a few restrictions, I'll provide access to it here!
 
 ## Project Description
 __A Magic the Gathering application where you can view, store and trade cards between users. It will involve using the [Magic: The Gathering API](https://magicthegathering.io/) to retrieve information on the different cards in the game.__
@@ -88,7 +89,7 @@ __Planning:__\
  Before working on this project, I'd only ever worked with JavaScript on the front end. Working on this project taught me a lot about the importance of planning out your project beforehand. When you have a lot of ideas for a project, implementing them while you work can make the process complicated. It's important to have a basic idea or even a diagram mapped out so you don't go overboard with features.
 
 __APIs and Documentation__\
-Finding good documentation is super important when you're planning out a project. It's a good idea to test out APIs before you start building your application. If you don't, you'll definitely run into problems down the line. Some APIs have quirks, and you have to really think about which features you plan to use with them and test them ahead of time! Some of the features for the API I was using to retrieve data, required streams to get them to work. I wasn't familiar with how to work with streams. Luckily I was able to find another method for retrieving the card data I needed.
+Finding good documentation is super important when you're planning out a project. It's a good idea to test out APIs before you start building your application. If you don't, you'll definitely run into problems down the line. Some APIs have quirks, and you have to really think about which features you plan to use with them and test them ahead of time! Some of the features for the API I was using to retrieve data, required streams to get them to work. I wasn't familiar with how to work with streams. Luckily, I was able to find another method for retrieving the card data I needed.
 
 ### Plans for future changes
-I'm hoping that when I have more time, I can add the trading feature which was one of my extra goals for this project. Having worked on a few projects since I started this, I have a few ideas that I'd like to try out!
+I'm hoping that, when I have more time, I can add the trading feature that was one of my extra goals for this project. Having worked on a few projects since I started this, I have a few ideas that I'd like to try out!
