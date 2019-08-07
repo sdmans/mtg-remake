@@ -2,7 +2,9 @@
 # Magic the Gathering Collection Application:
 
 ## Instructions
-I've created a test account that you can use to access this project. Once I've set up a few restrictions, I'll provide access to it here!
+Right now, the project is hosted on Heroku! You can access the application with the link in the description or visit it using [here](https://enigmatic-basin-39847.herokuapp.com/)! Anonymous users can use the Search and Market views in the navigation bar. However you'll have to create an account to add and remove cards from an account and the market place.
+
+I'm creating a test account that you can use to access the logged in features for this project. Once I've set up a few restrictions, I'll provide access to it here!
 
 ## Project Description
 __A Magic the Gathering application where you can view, store and trade cards between users. It will involve using the [Magic: The Gathering API](https://magicthegathering.io/) to retrieve information on the different cards in the game.__
