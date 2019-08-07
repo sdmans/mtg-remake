@@ -1,6 +1,6 @@
-# agic the Gathering Collection Application:
+# Magic the Gathering Collection Application:
 ## Project Description
-__ A Magic the Gathering application where you can view, store and trade cards between users. It will involve using the Magic: The Gathering API to retrieve information on the different cards in the game. __
+__A Magic the Gathering application where you can view, store and trade cards between users. It will involve using the Magic: The Gathering API to retrieve information on the different cards in the game.__
 
 
 ### 3 Main Features
@@ -15,7 +15,7 @@ __ A Magic the Gathering application where you can view, store and trade cards b
 
 ### Views and UI Description
 **The Index View**\
-UI will consist of a form where can submit a query for information on a particular set. There will be links to the different ‘basic’ views such as a login page, sign-in page, and profile page. There will also be links to views for each set.
+UI will consist of a form where can submit a query for information on a particular set. There will be links to the different "basic" views such as a login page, sign-in page, and profile page. There will also be links to views for each set.
 
 **Individual Card View**\
 An image of the card and relevant information such as type and effects
