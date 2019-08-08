@@ -2,7 +2,9 @@
 # Magic the Gathering Collection Application:
 
 ## Instructions
-Right now, the project is hosted on Heroku! You can access the application with the link in the description or visit it [here](https://enigmatic-basin-39847.herokuapp.com/)! Anonymous users can use the Search view and functions and see cards posted on the market by way of the navigation bar at the top. However you'll have to create an account to add and remove cards from an account and the marketplace.
+Right now, the project is hosted on Heroku! You can access the application with the link in the description or visit it [here](https://enigmatic-basin-39847.herokuapp.com/)! 
+
+Anonymous users can use the Search view and functions and see cards posted on the market by way of the navigation bar at the top. However you'll have to create an account to add and remove cards from an account and the marketplace.
 
 I'm creating a test account that you can use to access the logged in features for this project. Once I've set up a few restrictions, I'll provide access to it here!
 
