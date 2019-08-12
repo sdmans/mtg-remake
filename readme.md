@@ -64,7 +64,7 @@ Get the primary views running.
 
 
 ### Technical Requirements:
-The project uses HTML, CSS, NodeJS, BootStrap, and jQuery.\
+The project uses HTML, CSS, NodeJS, BootStrap, and jQuery.
 
 The app will use the following Packages.
 Express
