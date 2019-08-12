@@ -112,10 +112,10 @@ __Note:__ Anonymous users can use the Search view and functions and see cards po
 ## Test Account and Application Walkthrough
 __I'm creating a test account that you can use to access the logged in features for this project. Once I've set up a few restrictions, I'll provide access to it here!__
 
-### Account Setup and Loggin in
+### Account Setup and Signing in
 To create an account, select the first option. This will take you to a page to create a Username and Password. You can also use the test account I've made!
 
-Once you've logged in, navigate to the search view via the Search navigation item at the top or through the third option in the home view. Once you've selected either of these options, you'll be taken to the search view. Here, you can search for cards from sets in Magic the Gathering!
+Once you've signed in, navigate to the search view via the Search navigation item at the top or through the third option in the home view. Once you've selected either of these options, you'll be taken to the search view. Here, you can search for cards from sets in Magic the Gathering!
 
 ### Card Search View
 First, select a Set and Type from the game. If you're unfamiliar, just select the first option, "Amonkhet". Then in the second select box, choose the first option, "Creature". After those two are selected click submit!
