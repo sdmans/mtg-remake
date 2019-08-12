@@ -124,6 +124,13 @@ form.logout {
   padding-bottom: 20px;
 }
 
+.card-name {
+  font-weight: bold;
+  color: black;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
 .submit-form {
   padding-top: 20px;
   padding-bottom: 20px;
