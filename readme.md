@@ -1,18 +1,14 @@
 
 # Magic the Gathering Collection Application:
 
-## Instructions
-Right now, the project is hosted on Heroku! You can access the application with the link in the description or visit it [here](https://enigmatic-basin-39847.herokuapp.com/)! 
-
-Anonymous users can use the Search view and functions and see cards posted on the market by way of the navigation bar at the top. However you'll have to create an account to add and remove cards from an account and the marketplace.
-
-I'm creating a test account that you can use to access the logged in features for this project. Once I've set up a few restrictions, I'll provide access to it here!
-
-__Note:__ Since this project is hosted for free on Heroku, it may be slow to load at first. To learn more about this, see their documentation on [free dyno hours](https://devcenter.heroku.com/articles/free-dyno-hours)!
-
 ## Project Description
 __A Magic the Gathering application where you can view, store and trade cards between users. It will involve using the [Magic: The Gathering API](https://magicthegathering.io/) to retrieve information on the different cards in the game.__
 
+Right now, this project is hosted on Heroku! You can access the application with the link in the description or visit it [here](https://enigmatic-basin-39847.herokuapp.com/)!
+
+Instructions for using the application can be found at the bottom of of this document. You can also access them with this [link](#instructions)!
+
+__Note:__ Since this project is hosted for free on Heroku, it may be slow to load at first. To learn more about this, see their documentation on [free dyno hours](https://devcenter.heroku.com/articles/free-dyno-hours)!
 
 ### 3 Main Features
 1. Users should be able to browser MTG cards by set
@@ -99,3 +95,53 @@ Finding good documentation is super important when you're planning out a project
 
 ### Plans for future changes
 I'm hoping that, when I have more time, I can add the trading feature that was one of my extra goals for this project. Having worked on a few projects since I started this, I have a few ideas that I'd like to try out!
+
+## Instructions
+You can access the application with the link in the description or visit it [here](https://enigmatic-basin-39847.herokuapp.com/)! Once you've accessed the link, you'll be taken to the home view. 
+
+### Home View
+In this view, you can navigate to the application with the three main functions for the application.
+
+The first link, "Create An Account To Start a Collection" lets you create an account to start your collection.
+
+The second link, "Check out the market" will take you to the market view where you can see what cards have been posted by other users in the market.
+
+the third option, "Search a specified card by set" will let you access the card search function for the application.
+
+__Note:__ Anonymous users can use the Search view and functions and see cards posted on the market by way of the navigation bar at the top. However you'll have to create an account to access additional features such as adding searched cards and remove cards from an account collection or the marketplace!
+
+### Test Account and Application Walkthrough
+I'm creating a test account that you can use to access the logged in features for this project. Once I've set up a few restrictions, I'll provide access to it here!
+
+To create an account, select the first option. This will take you to a page to create a Username and Password. You can also use the test account I've made!
+
+Once you've logged in, navigate to the search view via the Search navigation item at the top or through the third option in the home view. Once you've selected either of these options, you'll be taken to the search view. Here, you can search for cards from sets in Magic the Gathering!
+
+First, select a Set and Type from the game. If you're unfamiliar, just select the first option, "Amonkhet". Then in the second select box, choose the first option, "Creature". After those two are selected click submit!
+
+Once the page has loaded, select a Card Name. You can select any you prefer or just the first one, "Ahn-Crop Champion". Then click the submit button. 
+
+This will take you to the detail view for this card with the card's image and description.
+
+Since you're logged in, you'll see an Add to Inventory button. Click this button and you'll be taken to your profile view. 
+
+## User Profile View
+The user profile view will display your username at the top with an inventory of any cards added to your collection. You'll see the card you'd just selected, added to the inventory. At the bottom of the page, you'll see three options. 
+
+__Add a new card to your inventory:__\ 
+This will navigate you back to the search view where can you can submit a query for another card like in the previous step.
+
+__Post a card to the market:__\
+Selecting this option will take you to a submit view with your inventory listed and a selector at the bottom where you can pick a card to add to the market! After you've selected this, you can then navigate to the Market view to see your card listed.
+
+__Remove a card from inventory:__\ 
+This selector will let you choose a card in your inventory to remove. Once you've selected the card you intend to remove, click the remove card button and the page will be reloaded with your updated inventory.
+
+For the purpose of walking you through the process, click the second option, "Post a card to the market!". Then select the card added to your inventory via the selector at the bottom and click Submit Card. Once you do this, you'll be taken back to the profile view. To view the market, select "Market" in the navigation menu at the top of the page. 
+
+## Market View
+Once you've clicked the "Market" link, you'll be taken to a page with a number of cards listed on the page. Search for your username or the picture of the card you'd submitted and you'll see that your card is posted to the market. 
+
+You can then remove the card from the Market via the drop down at the bottom under, "Remove a Card from the market". This drop down will list all cards you've posted to the market.
+
+This completes the walkthrough for the application. With this application, you can create an account, search for cards, build a collection and add cards to the market!
