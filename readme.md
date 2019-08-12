@@ -96,26 +96,28 @@ Finding good documentation is super important when you're planning out a project
 I'm hoping that, when I have more time, I can add the trading feature that was one of my extra goals for this project. Having worked on a few projects since I started this, I have a few ideas that I'd like to try out!
 
 ## Instructions
-You can access the application with the link in the description or visit it [here](https://enigmatic-basin-39847.herokuapp.com/)! Once you've accessed the link, you'll be taken to the home view. 
+You can access the application with the link in the description or visit it [here](https://enigmatic-basin-39847.herokuapp.com/)! Once you've accessed the link, you'll be taken to the home view of the application. 
 
 ### Home View
 In this view, you can navigate to the application with the three main functions for the application.
 
-The first link, "Create An Account To Start a Collection" lets you create an account to start your collection.
+__The first option, "Create An Account To Start a Collection" -__ Takes you to a form to create an account so you can log in and start a collection.
 
-The second link, "Check out the market" will take you to the market view where you can see what cards have been posted by other users in the market.
+__The second option, "Check out the market" -__ This will take you to the market view where you can see what cards have been posted by other users in the market.
 
-the third option, "Search a specified card by set" will let you access the card search function for the application.
+__The third option, "Search a specified card by set" -__ This will take you to the Search View that lets you access the card search function for the application.
 
 __Note:__ Anonymous users can use the Search view and functions and see cards posted on the market by way of the navigation bar at the top. However you'll have to create an account to access additional features such as adding searched cards and remove cards from an account collection or the marketplace!
 
-### Test Account and Application Walkthrough
-I'm creating a test account that you can use to access the logged in features for this project. Once I've set up a few restrictions, I'll provide access to it here!
+## Test Account and Application Walkthrough
+__I'm creating a test account that you can use to access the logged in features for this project. Once I've set up a few restrictions, I'll provide access to it here!__
 
+### Account Setup and Loggin in
 To create an account, select the first option. This will take you to a page to create a Username and Password. You can also use the test account I've made!
 
 Once you've logged in, navigate to the search view via the Search navigation item at the top or through the third option in the home view. Once you've selected either of these options, you'll be taken to the search view. Here, you can search for cards from sets in Magic the Gathering!
 
+### Card Search View
 First, select a Set and Type from the game. If you're unfamiliar, just select the first option, "Amonkhet". Then in the second select box, choose the first option, "Creature". After those two are selected click submit!
 
 Once the page has loaded, select a Card Name. You can select any you prefer or just the first one, "Ahn-Crop Champion". Then click the submit button. 
@@ -124,7 +126,7 @@ This will take you to the detail view for this card with the card's image and de
 
 Since you're logged in, you'll see an Add to Inventory button. Click this button and you'll be taken to your profile view. 
 
-## User Profile View
+### User Profile View
 The user profile view will display your username at the top with an inventory of any cards added to your collection. You'll see the card you'd just selected, added to the inventory. At the bottom of the page, you'll see three options. 
 
 __Add a new card to your inventory:__\ 
@@ -138,7 +140,7 @@ This selector will let you choose a card in your inventory to remove. Once you'v
 
 For the purpose of walking you through the process, click the second option, "Post a card to the market!". Then select the card added to your inventory via the selector at the bottom and click Submit Card. Once you do this, you'll be taken back to the profile view. To view the market, select "Market" in the navigation menu at the top of the page. 
 
-## Market View
+### Market View
 Once you've clicked the "Market" link, you'll be taken to a page with a number of cards listed on the page. Search for your username or the picture of the card you'd submitted and you'll see that your card is posted to the market. 
 
 You can then remove the card from the Market via the drop down at the bottom under, "Remove a Card from the market". This drop down will list all cards you've posted to the market.
