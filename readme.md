@@ -4,9 +4,8 @@
 ## Project Description
 __A Magic the Gathering application where you can view, store and trade cards between users. It will involve using the [Magic: The Gathering API](https://magicthegathering.io/) to retrieve information on the different cards in the game.__
 
-Right now, this project is hosted on Heroku! You can access the application with the link in the description or visit it [here](https://enigmatic-basin-39847.herokuapp.com/)!
-
-Instructions for using the application can be found at the bottom of of this document. You can also access them with this [link](#instructions)!
+### Accessing Demo and Application Instructions
+Right now, this project is hosted on Heroku! You can access the application with the link in the description or visit it [here](https://enigmatic-basin-39847.herokuapp.com/)! Instructions for using the application can be found at the bottom of of this document. You can also access them with this [link](#instructions)!
 
 __Note:__ Since this project is hosted for free on Heroku, it may be slow to load at first. To learn more about this, see their documentation on [free dyno hours](https://devcenter.heroku.com/articles/free-dyno-hours)!
 
