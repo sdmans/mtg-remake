@@ -13,20 +13,22 @@
 
 
   {{#if currentUser}}<!-- If a user is present, display the markup below -->
-  <p><b>Remove a card from the Market</b></p>
-
+  
   <form class="market-form" action="/trade/market" method="post">
-  <select class="market-card" name="marketSelector">
-
-    <option value="">Select a card</option>
-    {{#each currentUser.ownCards}}<!-- displays the value for each card on the market -->
-      {{#if onMarket}}<!-- if this card exists on the market, display it -->
+  <div class="form-group">
+    <label for="marketSelector">Remove a card from the market</label>
+    <select class="form-control" name="marketSelector">
+      <option value="">Select a card to remove</option>
+      {{#each currentUser.ownCards}}<!-- displays the value for each card on the market -->
+        {{#if onMarket}}<!-- if this card exists on the market, display it -->
       <option value="{{uniqueId}}">{{name}}</option>
-      {{/if}}
+        {{/if}}
       {{/each}}
-  </select>
-  <button type="submit" name="button">Remove Card</button>
+    </select>
+  </div>
+  <button class="btn btn-outline-warning" type="submit" name="button">Remove Card</button>
   </form>
+
   {{/if}}
 {{/if}}
 <!--

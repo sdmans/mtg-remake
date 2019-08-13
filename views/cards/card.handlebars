@@ -2,13 +2,14 @@
 <hr class="second-header">
 
 <img src='{{image}}'>
-<p><b>Set:</b> {{set}}</p>
-<p><b>Type: </b>{{type}}</p>
-<p><b>Rarity: </b>{{rarity}}</p>
-<p><b>Text: </b>{{text}}</p>
+<p><span class="field-title">Set:</span> {{set}}</p>
+<p><span class="field-title">Type: </span>{{type}}</p>
+<p><span class="field-title">Rarity: </span>{{rarity}}</p>
+<p><span class="field-title">Card Text: </span></p>
+<p>{{text}}</p>
 
 {{#if chosenCard}}
-<p class="notify"><b>Card Added to Inventory</b></p>
+<p class="notify"><b>Currently in Inventory</b></p>
 {{/if}}
 
 <form class="" action="/cards/{{name}}" method="post">

@@ -139,7 +139,7 @@ marketRouter.get('/market', function (req, res) {
 }).post('/submit', function(req, res) {
   let submittingUser = req.user;
   /* cardValue takes the uniqueId value from the selector which is also present in the req.user.ownCards array card objects */
-  let selectedCardValue = req.body.inventoryselector;
+  let selectedCardValue = req.body.inventorySelector;
   // console.log(req.body);
   let userCards = submittingUser.ownCards;//Stores user's own cards to a variable.
   // console.log("User's cards are ", userCards);

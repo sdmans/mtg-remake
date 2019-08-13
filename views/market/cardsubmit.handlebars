@@ -17,14 +17,16 @@
 </div>
 
   <form class="submit-form" action="/trade/submit" method="post">
-      <select class="inventory-select" name="inventoryselector">
-        <option value="">Select a card</option>
+  <div class="form-group">
+    <label for="inventoryselector">Select a card to post to the market</label>
+      <select class="form-control" name="inventorySelector">
+        <option value="">Select a card form your inventory</option>
         {{#each submittingUser.ownCards}}
         <option value="{{uniqueId}}">{{name}}</option>
         {{/each}}
-
       </select>
-      <button type="submit" name="button">Submit Card</button>
+      </div>
+      <button class="btn btn-outline-info" type="submit" name="button">Submit Card</button>
   </form>
 
 
