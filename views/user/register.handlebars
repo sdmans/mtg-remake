@@ -1,12 +1,18 @@
 <h2>Register for an Account</h2>
 <hr class="second-header">
 
-<form class="" action="/user/register" method="post">
-  <p><b>Username</b></p>
-  <input type="text" name="username" value="">
-  <p><b>Password</b></p>
-  <input type="text" name="password" value="">
-  <button type="submit" name="button">submit</button>
+<form class="registration-form" action="/user/register" method="post">
+<div class="form-group">
+<label for="username">Username</label>
+  <input type="text" class="form-control" name="username" aria-describedby="accountHelp" placeholder="Enter account name">
+  <small id="accountHelp" class="form-text text-muted">We'll never share your credentials with anyone else.</small>
+</div>
+
+<div class="form-group">
+  <label for="username">Password</label>
+  <input type="password" class="form-control" name="password" placeholder="Enter password">
+</div>
+  <button class="btn btn-secondary" type="submit" name="button">Create Account</button>
 </form>
 
-<p><a href="/">Return to Main Page</a></p>
+<p class="return"><a href="/">Return to Main Page</a></p>

@@ -10,12 +10,14 @@ const userRouter = express.Router()
 //Getting the page to store a username and password after being submitted
 userRouter.get('/register', function(req, res) {
   res.render('user/register')
-}).post('/register', function( req, res) {
+}).post('/register', function(req, res) {
+  console.log(req.body);
   User.register(new User({
     username: req.body.username
   }), req.body.password, function (err, user) {
     if (err) {
       console.log('error occurred')
+      console.log(err);
       return res.render('user/register', {user: user})
     }
     passport.authenticate('local')(req, res, function() {
@@ -28,14 +30,11 @@ userRouter.get('/register', function(req, res) {
 
 userRouter.get('/signin', function(req, res) {
   res.render('user/signin')
-}).post('/signin',
-passport.authenticate('local'),
-function(req, res) {
+}).post('/signin', passport.authenticate('local'),//To check input, add function before authenticate and console log req.body
+ function(req, res) {
   console.log('login successful')
-  // let userObject = req.body.username
-  // console.log(req.user)
-  res.redirect('/user/profile')
-})
+  res.redirect('/user/profile');
+ });
 
 userRouter.get('/profile', function(req, res) {
   const currentUser = req.user

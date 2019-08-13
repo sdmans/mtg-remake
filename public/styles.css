@@ -136,6 +136,20 @@ form.logout {
   padding-bottom: 20px;
 }
 
+.registration-form {
+  max-width: 80%;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+input.form-control {
+  border-radius: 10px;
+}
+
+p.return {
+  margin-left: 10%;
+}
+
 .inventory {
   width: 150px;
   height: 200px;
