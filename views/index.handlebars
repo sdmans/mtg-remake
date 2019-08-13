@@ -2,8 +2,9 @@
 <hr class="second-header">
 {{#if currentUser}}
 <p>Now logged in as {{currentUser.username}}</p>
+
 <form class="logout" action="/" method="post">
-<button type="submit" name="button">Logout</button>
+  <button type="submit" name="button">Logout</button>
 </form>
 {{/if}}
 

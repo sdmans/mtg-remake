@@ -2,31 +2,48 @@
 <hr class="second-header">
 
 <h3>Search for a card!</h3>
-<p><b>Enter a card set name!</b></p>
-<p>Select from the 5 most recent sets and a type. Then Select a name</p>
+<p>Select from a list of sets from magic the gathering. Then select a card type!</p>
 
 {{#unless cards}}
-<p><b>Select a Set and Type</b></p>
 <form class="card-search" action="/cards/search" method="POST">
-<select name="selectset">
-  <option value=""></option>
-  <option value="akh">Amonkhet</option>
-  <option value="aer">Aether Revolt</option>
-  <option value="kld">Kaladesh</option>
-  <option value="emn">Eldritch Moon</option>
-  <option value="soi">Shadows Over Innistrad</option>
-</select>
-<select name="selecttype">
-  <option value=""></option>
-  <option value="Creature">Creature</option>
-  <option value="Instant">Instant</option>
-  <option value="Sorcery">Sorcery</option>
-  <option value="Artifact">Artifact</option>
-  <option value="Enchantment">Enchantment</option>
-  <option value="Planeswalker">Planeswalker</option>
-  <option value="Land">Land</option>
-</select>
-  <button type="submit" name="submit">Submit</button>
+  <div class="form-group">
+  <!-- LUX Bootstrap select component -->
+  <!--
+    <div class="form-group">
+        <label for="exampleSelect1">Example select</label>
+        <select class="form-control" id="exampleSelect1">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+      -->
+  <label for="selectSet">Select a Set</label>
+  <select class="form-control" name="selectSet">
+    <option value="">Select a Set</option>
+    <option value="akh">Amonkhet</option>
+    <option value="aer">Aether Revolt</option>
+    <option value="kld">Kaladesh</option>
+    <option value="emn">Eldritch Moon</option>
+    <option value="soi">Shadows Over Innistrad</option>
+  </select>
+
+<label for="selectType">Select a card type</label>
+  <select class="form-control" name="selectType">
+    <option value="">Select card type</option>
+    <option value="Creature">Creature</option>
+    <option value="Instant">Instant</option>
+    <option value="Sorcery">Sorcery</option>
+    <option value="Artifact">Artifact</option>
+    <option value="Enchantment">Enchantment</option>
+    <option value="Planeswalker">Planeswalker</option>
+    <option value="Land">Land</option>
+  </select>
+
+    <button class="btn btn-secondary" type="submit" name="submit">Submit</button>
+  </div>
 </form>
 {{/unless}}
 

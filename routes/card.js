@@ -3,16 +3,16 @@ const mtg = require('mtgsdk')
 
 const cardRouter = express.Router()
 
-//Testing Search function
-//Figure out how to handle blank entries
+//This handles the Card Search View for the application
 cardRouter.get('/search', function(req, res) {
   console.log('Accessing card search...')
   res.render('cards/search')
 }).post('/search', function(req, res) {
   //Store set to a variable
-  let cardSet = req.body.selectset
+  let cardSet = req.body.selectSet
   //store type to a variable
-  let cardType = req.body.selecttype
+  let cardType = req.body.selectType
+  /* Figure out how to handle blank entries */
 
   mtg.card.where({
       set: cardSet,
@@ -23,14 +23,8 @@ cardRouter.get('/search', function(req, res) {
 
       //Rerender the page
       res.redirect(`/cards/namesearch/${cardSet}/${cardType}`)
-
-
-      //Attempt to store cardname value to a variable
-      //Can't seem to use this to redirect to pages
-      //'Can\'t set headers after they are sent.'
-      // res.redirect(`/cards/${cardName}`)
     })
-})
+});
 
 cardRouter.get('/namesearch/:set/:type', function(req, res) {
   //Take the two parameters and use them to query for the list
@@ -49,13 +43,12 @@ cardRouter.get('/namesearch/:set/:type', function(req, res) {
     })
 
 }).post('/namesearch/:set/:type', function(req, res) {
-  const location = req.body.nameselector
+  const location = req.body.nameSelector
   // console.log(location)
   res.redirect(`/cards/${location}`)
-})
+});
 
 //Search by multiverseid
-
 cardRouter.get('/:multiverseid', function(req, res) {
   const cardID = req.params.multiverseid
 
