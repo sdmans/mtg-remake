@@ -112,7 +112,7 @@ __Note:__ Anonymous users can use the Search view and functions and see cards po
 ## Test Account and Application Walkthrough
 You can use this test account to access the signed in features for this project.
 
-__Username:__ testuser
+__Username:__ testuser\
 __Password:__ testpw
 
 ### Account Setup and Signing in
@@ -130,13 +130,13 @@ Since you're logged in, you'll see an Add to Inventory button near the bottom of
 ### User Profile View
 The user profile view will display your username at the top with an inventory of any cards added to your collection. You'll see the card you'd just selected, added to the inventory. At the bottom of the page, you'll see three options. 
 
-__Add a new card to your inventory:__\ 
+__Add a new card to your inventory:__
 This will navigate you back to the search view where can you can submit a query for another card like in the previous step.
 
-__Post a card to the market:__\
+__Post a card to the market:__
 Selecting this option will take you to a submit view with your inventory listed and a selector at the bottom where you can pick a card to add to the market! After you've selected this, you can then navigate to the Market view to see your card listed.
 
-__Remove a card from inventory:__\ 
+__Remove a card from inventory:__
 This selector will let you choose a card in your inventory to remove. Once you've selected the card you intend to remove, click the remove card button and the page will be reloaded with your updated inventory.
 
 For the purpose of walking you through the process, click the second option, "Post a card to the market!". Then select the card added to your inventory via the selector at the bottom and click Submit Card. Once you do this, you'll be taken back to the profile view. To view the market, select "Market" in the navigation menu at the top of the page. 
