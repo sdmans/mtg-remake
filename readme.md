@@ -110,21 +110,22 @@ __The third option, "Search a specified card by set" -__ This will take you to t
 __Note:__ Anonymous users can use the Search view and functions and see cards posted on the market by way of the navigation bar at the top. However you'll have to create an account to access additional features such as adding searched cards and remove cards from an account collection or the marketplace!
 
 ## Test Account and Application Walkthrough
-__I'm creating a test account that you can use to access the logged in features for this project. Once I've set up a few restrictions, I'll provide access to it here!__
+You can use this test account to access the signed in features for this project.
+
+__Username:__ testuser
+__Password:__ testpw
 
 ### Account Setup and Signing in
-To create an account, select the first option. This will take you to a page to create a Username and Password. You can also use the test account I've made!
+To create an account, select the first option. This will take you to a page to create a Username and Password. You can also use the test account above to sign into the application!
 
-Once you've signed in, navigate to the search view via the Search navigation item at the top or through the third option in the home view. Once you've selected either of these options, you'll be taken to the search view. Here, you can search for cards from sets in Magic the Gathering!
+Once you've signed in, you'll be taken to a profile view. Navigate to the search view via the Search navigation item at the top or through the third option in the home view. Once you've selected either of these options, you'll be taken to the search view. Here, you can search for cards from sets in Magic the Gathering!
 
 ### Card Search View
 First, select a Set and Type from the game. If you're unfamiliar, just select the first option, "Amonkhet". Then in the second select box, choose the first option, "Creature". After those two are selected click submit!
 
-Once the page has loaded, select a Card Name. You can select any you prefer or just the first one, "Ahn-Crop Champion". Then click the submit button. 
+Once the page has loaded, select a Card Name. You can select any you prefer or just the first one, "Ahn-Crop Champion". Then click the submit button. This will take you to the detail view for this card with the card's image and description.
 
-This will take you to the detail view for this card with the card's image and description.
-
-Since you're logged in, you'll see an Add to Inventory button. Click this button and you'll be taken to your profile view. 
+Since you're logged in, you'll see an Add to Inventory button near the bottom of the page. Click this button and you'll be taken to your profile view! 
 
 ### User Profile View
 The user profile view will display your username at the top with an inventory of any cards added to your collection. You'll see the card you'd just selected, added to the inventory. At the bottom of the page, you'll see three options. 
@@ -141,8 +142,10 @@ This selector will let you choose a card in your inventory to remove. Once you'v
 For the purpose of walking you through the process, click the second option, "Post a card to the market!". Then select the card added to your inventory via the selector at the bottom and click Submit Card. Once you do this, you'll be taken back to the profile view. To view the market, select "Market" in the navigation menu at the top of the page. 
 
 ### Market View
-Once you've clicked the "Market" link, you'll be taken to a page with a number of cards listed on the page. Search for your username or the picture of the card you'd submitted and you'll see that your card is posted to the market. 
+Once you've clicked the "Market" link, you'll be taken to a page with a number of cards listed on the page. Search for your username or the picture of the card you submitted and you'll see that your card is posted to the market!
 
 You can then remove the card from the Market via the drop down at the bottom under, "Remove a Card from the market". This drop down will list all cards you've posted to the market.
 
-This completes the walkthrough for the application. With this application, you can create an account, search for cards, build a collection and add cards to the market!
+Once you're finished navigate to the Home View and, above the three main options, where it says that you're currently signed in. Click Sign Out to log out of the application. 
+
+This completes the walkthrough for the application. With this application, you can create an account, search for cards, build a collection and add cards to the market. Thanks for completing the walkthrough!

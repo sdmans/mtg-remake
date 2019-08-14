@@ -50,6 +50,8 @@ cardRouter.get('/namesearch/:set/:type', function(req, res) {
 
 //Search by multiverseid
 cardRouter.get('/:multiverseid', function(req, res) {
+  const currentUser = req.user;
+
   const cardID = req.params.multiverseid
 
   mtg.card.find(cardID)
@@ -64,7 +66,7 @@ cardRouter.get('/:multiverseid', function(req, res) {
         set: result.card.setName,
         id: result.card.multiverseid
       }
-      res.render('cards/multiverseid', currentCard)
+      res.render('cards/multiverseid', currentCard);
     })
 }).post('/:multiverseid', function(req, res){
   const id = req.params.multiverseid
