@@ -1,12 +1,20 @@
 <h2>Home View</h2>
 <hr class="second-header">
-{{#if currentUser}}
-<p>Now logged in as {{currentUser.username}}</p>
 
-<form class="logout" action="/" method="post">
-  <button type="submit" name="button">Logout</button>
-</form>
-{{/if}}
+<div class="user-status-container">
+  {{#if currentUser}}
+
+    <p>Now signed in as {{currentUser.username}}</p>
+
+    <form class="logout" action="/" method="post">
+      <button class="logout-btn" type="submit" name="button">Sign Out</button>
+    </form>
+
+    {{else}}
+    <p>Not currently signed in</p>
+
+  {{/if}}
+</div>
 
 <section>
 <div class="options-container">

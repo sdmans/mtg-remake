@@ -107,9 +107,28 @@ h3 > a:hover {
 }
 /* Anchor Link CSS ends */
 
-form.logout {
+/* Styles for user status icons. This contains whether the user is signed in and the option to log out with a button */
+div.user-status-container {
+  display: flex;
   margin-bottom: 20px;
 }
+
+div.user-status-container > form {
+  margin-left: 10px;
+}
+
+button.logout-btn {
+  background-color: #ffffff;
+  border: none;
+}
+
+button.logout-btn:hover {
+ background-color: #f5f5f5;
+}
+
+
+
+/* User Status styles end */
 
 .set-list {
   list-style-type: none;
